@@ -1,0 +1,118 @@
+#+TITLE: Predicting Memory Encoding using an OpenBCI
+ 
+#+ATTR_HTML: :style max-height: 450px
+[[file:images/eeg-memory/sm_attention_cartoon_zhanna.png]]
+
+(Updated image thanks to [[https://github.com/zhannar][Zhanna]])
+
+Two weekends ago, my Neurotech friends and I got together and decided
+to replicate an article we saw presented at the [[http://bcisociety.org/meetings/bci-meeting-2016-welcome/][BCI conference]]:
+[[http://doi.org/10.3217/978-3-85125-467-9-128][Improving Memory Performance Using a Wearable BCI]] . Since they use an
+Emotiv headset, we thought it should be possible to get similar results
+(or maybe even better) with an [[http://openbci.com/][OpenBCI headset]].
+
+The basic idea is that when you're presented with some fact, you may or may not be in the right
+state of mind to remember it. At one time, you might be completely focused and be able to recall the
+fact precisely at a later time. Many times though, you get distracted (by ice cream or something) and
+you have no idea what you read or heard for the last 5 minutes.
+
+What if we could automatically detect whether the memory is encoded based on brainwaves at that
+time? (It turns out there's a whole [[https://en.wikipedia.org/wiki/Difference_due_to_memory][field]] about this!) If so, we could improve the flashcard system [[http://ankisrs.net/][Anki]] by showing the cards we think you'll forget
+again earlier.
+
+So we did it! We successfully recorded data using the OpenBCI and got some initial results.
+
+Making an experiment like this from beginning to end might be daunting, so I've documented all our
+steps in as much detail as possible.
+
+Before we begin, all our code is open-source and you can find it here:
+
+ https://github.com/zhannar/anki-eeg
+
+Though the README file for the code is decent, I’ll describe the experiment in even more detail below.
+
+* Experiment
+** Start by attaching the OpenBCI electrodes to the participant's head
+[[file:images/eeg-memory/sm_setup_1.jpg]]
+[[file:images/eeg-memory/sm_setup_3.jpg]]
+
+Our setup is similar to the [[http://docs.openbci.com/tutorials/01-GettingStarted][getting started tutorial]] from OpenBCI. We also used a combination of [[http://www.weaverandcompany.com/ten20.html][Ten20 conductive
+paste]] and cup electrodes, and stuck each on the participant's scalp. Just as in the tutorial, we
+placed the SRB2 reference electrode on one earlobe, and the BIAS reference electrode on the other
+earlobe.
+
+[[file:images/eeg-memory/sm_setup_2.jpg]]
+[[file:images/eeg-memory/sm_setup_4.jpg]]
+
+As can be seen in the images above, the main difference with our setup is that we used all 8
+electrodes.  Our reference paper got the strongest results from parietal and occipital regions, so
+we placed most of our electrodes there. Most commercial headsets get data primarily from the
+prefrontal cortex. We also placed 1-2 electrodes there to cover our bases and hedge against missing
+out on potentially useful results.
+
+** Check connections using the OpenBCI processing sketch
+#+ATTR_HTML: :style max-height: 350px
+[[file:images/eeg-memory/alpha.png]]
+
+The OpenBCI tutorial, once again, [[http://docs.openbci.com/tutorials/01-GettingStarted#getting-started-w-openbci-ii-downloadrun-the-openbci-gui][walks you through]] how to get setup and run their processing sketch.
+
+To check if you're getting EEG, we generally look for alpha waves and artifacts (eye blinks and jaw
+clench). You can see how those look in the picture above, from the OpenBCI tutorial.
+
+If you don't check the EEG streams before the experiment, you may end up collecting just noise on
+some electrodes. In these checks, we often find that 1 or 2 electrodes are loose (possibly including
+the reference electrodes!), so we secure them properly.
+
+** Record positions of EEG according to 10-20 system
+[[file:images/eeg-memory/sm_10_20.png]]
+
+We took pictures of the participant’s head after applying the electrodes, then also
+recorded where we believed the electrodes were located referencing the 10-20 system diagram
+above. Knowing these positions allows us to connect our results back to the neuroscience.
+
+In retrospect, a better way to run future experiment would be to standardize the positions first and
+then run multiple experiments with the same positions.
+
+** Present list of words and record
+[[file:images/eeg-memory/sm_experiment.jpg]]
+
+This is where we finally use the code we wrote!
+
+You can run this from inside the repo to start the experiment:
+#+BEGIN_SRC bash
+cd paradigm
+python encode.py
+#+END_SRC
+
+This will start presenting the words using pygame.  At the same time, it will start collecting EEG
+data into data/eeg_TIME.csv and the words displayed into data/words_TIME.csv, where TIME is the [[https://en.wikipedia.org/wiki/Unix_time][Unix time]] at the start of recording.
+
+# Note that you might experience some troubles with the OpenBCI at this point. You can find some common problems and solutions [[*Streaming OpenBCI data in Python][here]].
+
+After you've finished presenting the list of words, you can remove electrodes and unplug the OpenBCI.
+
+Wait some time (we tended to wait around 1-5 minutes), then have your subject perform the recall
+test.  To keep the experiment controlled, it's better to have each subject wait the same time
+(although we failed to do this in our few runs).
+
+** Test recall
+[[file:images/eeg-memory/sm_recognize.png]]
+
+After the participant has waited for some time, you can initiate the second part of the experiment (testing their recall) by running:
+
+#+BEGIN_SRC bash
+cd paradigm
+python recognize.py ../data/words_TIME.csv
+#+END_SRC
+where TIME is the Unix time of your previous recording.
+
+This will generate a file in data/words_TIME_labeled.csv, with an extra column "recognized",
+depending on whether the word was marked as recognized or not by the subject.
+
+* Analysis
+You can finally move on to the really interesting part: the analysis!
+
+
+
+This part is still in progress... We got some interesting results, and I'll come back and detail them soon...
+For now, you can look at our [[https://github.com/zhannar/anki-eeg/blob/master/analysis/eeg_analysis.ipynb][mildly documented IPython notebook]].

@@ -15,6 +15,16 @@
       org-html-validation-link nil
       org-latex-prefer-user-labels t)
 
+(setq org-html-head "
+      <link href=\"/css/code-theme.css\" rel=\"stylesheet\">
+      <link href=\"/css/style.css\" rel=\"stylesheet\">
+      <script src=\"/js/footnotes.js\"></script>
+"
+      )
+
+(setq user-full-name "lambdaloop"
+      user-mail-address "krchtchk@gmail.com")
+
 (setcdr (assq 'path org-html-mathjax-options)
         '("https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js")
         )

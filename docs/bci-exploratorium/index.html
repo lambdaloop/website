@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- 2020-08-16 Sun 13:58 -->
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Mind Controlled Robotic Arm at The Exploratorium</title>
+<meta content="Org mode" name="generator"/>
+<meta content="lambdaloop" name="author"/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link href="/css/code-theme.css" rel="stylesheet"/>
+<link href="/css/style.css" rel="stylesheet"/>
+<script src="/js/footnotes.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Mind Controlled Robotic Arm at The Exploratorium</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org84a2d18">1. The exhibit</a></li>
+<li><a href="#org7789980">2. Behind the scenes</a>
+<ul>
+<li><a href="#orgbda2d86">2.1. Overview of the system</a></li>
+<li><a href="#orgec3a6ef">2.2. Headset</a></li>
+<li><a href="#org48531b1">2.3. Streaming the data</a></li>
+<li><a href="#orga23373e">2.4. Analysis</a>
+<ul>
+<li><a href="#orga97b038">2.4.1. Raw EEG</a></li>
+<li><a href="#org4e0b000">2.4.2. Identify and remove artifacts</a></li>
+<li><a href="#org303958f">2.4.3. Extract features</a></li>
+<li><a href="#org0a8ecc7">2.4.4. Classify</a></li>
+<li><a href="#org1591022">2.4.5. Smooth out results</a></li>
+</ul>
+</li>
+<li><a href="#org058e7b9">2.5. Display</a></li>
+<li><a href="#org1a9141e">2.6. That’s it!</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="outline-2" id="outline-container-org84a2d18">
+<h2 id="org84a2d18"><span class="section-number-2">1</span> The exhibit</h2>
+<div class="outline-text-2" id="text-1">
+<div class="figure">
+<p><img alt="exhibit_1.jpg" src="/images/exploratorium/exhibit_1.jpg"/>
+</p>
+</div>
+<p>
+At the beginning of last year (2015), there was a grand <a href="http://www.explorecogtech.com/">neuroscience exhibition</a> at the
+Exploratorium. People could see how their brainwaves and heart rate change as they meditate,
+experience a virtual reality that adapts to their brain, learn about the latest fMRI research,
+control a robot arm with their mind, among other things.
+</p>
+<p>
+I was part of the team responsible for the <a href="http://www.explorecogtech.com/projects.html#MIM">mind-controlled robotic arm</a>.  It was a great
+experience. The Make magazine even <a href="http://makezine.com/2015/02/02/control-a-robot-arm-with-your-brain/">wrote about us</a>!
+</p>
+<p>
+I’ll present this here, in this way overdue post. Basically, it went like this…
+</p>
+<div class="figure">
+<p><img alt="flow_1.jpg" src="/images/exploratorium/flow_1.jpg"/>
+</p>
+</div>
+<p>
+First, we setup the headset. The electrodes had to be pointing down, and all touching the scalp. We
+looked at our own display of signal quality to check whether they were placed properly.
+</p>
+<div class="figure">
+<p><img alt="flow_2.jpg" src="/images/exploratorium/flow_2.jpg"/>
+</p>
+</div>
+<p>
+We would then explain the training protocol. Basically the visitors needed to do some motor
+imagery. They would see a little man waving his arm (for left or right) or staying still (for
+baseline). They would then have to imagine something related to their left arm, right arm, or
+neither, according to the position of the man.
+</p>
+<p>
+I would tell them it’s important to have “vivid and consistent images”. Things like imagining
+sensations on hand, imagining arm wrestling, or imagining raising hand in the air all worked for
+different people.
+</p>
+<div class="figure">
+<p><img alt="flow_3.jpg" src="/images/exploratorium/flow_3.jpg"/>
+</p>
+</div>
+<p>
+Here they actually did the training described above.
+</p>
+<div class="figure">
+<p><img alt="flow_4.jpg" src="/images/exploratorium/flow_4.jpg"/>
+</p>
+</div>
+<p>
+The most exciting part! They finally get to control the robot arm. It’s pretty exciting when the
+robot arm moves according to your thoughts!
+</p>
+<p>
+Some visitors could do it, others not so much. I noticed that the younger visitors had an easier
+time than the older ones.
+</p>
+<p>
+My friend Tomás claims it’s due to “BCI illiteracy”, that some people have trouble learning this
+abstract skill, although I feel like we could all learn this skill, albeit at different paces. Our
+little booth had only so much time to train people, our headset perhaps not suited for everyone
+(especially with lots of frizzy hair), and the people themselves not always in the best state of
+mind to do this training.
+</p>
+</div>
+</div>
+<div class="outline-2" id="outline-container-org7789980">
+<h2 id="org7789980"><span class="section-number-2">2</span> Behind the scenes</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div class="outline-3" id="outline-container-orgbda2d86">
+<h3 id="orgbda2d86"><span class="section-number-3">2.1</span> Overview of the system</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+This exhibit is composed of three main components
+</p>
+<ul class="org-ul">
+<li><b>The headset</b>: to record the data from the visitor</li>
+<li><b>The computer</b>: to analyze the data and display a screen of the training to the visitor</li>
+<li><b>The robotic arm</b>: to be controlled</li>
+</ul>
+<p>
+I cannot speak much about the robotic arm, since I didn’t build it. This was the work of Jon Ferran
+and Alex Nolan from <a href="http://m0xy.com/">m0xy</a>. It was a pretty cool metal arm with one degree of freedom, and a claw to pinch.
+</p>
+<p>
+All the code is available here:
+<a href="https://github.com/tomasero/mind-kinetics">https://github.com/tomasero/mind-kinetics</a>
+</p>
+</div>
+</div>
+<div class="outline-3" id="outline-container-orgec3a6ef">
+<h3 id="orgec3a6ef"><span class="section-number-3">2.2</span> Headset</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<img alt="sm_headset_1.png" src="/images/exploratorium/sm_headset_1.png"/>
+<img alt="sm_headset_2.png" src="/images/exploratorium/sm_headset_2.png"/>
+</p>
+<p>
+John Naulty and I built the headset. John had the great idea of using a swimsuit cap. It was
+flexible so that it fit tightly on most people’s heads, and at the same time was easily
+cleanable. We sewed the electrodes onto the headset, soldered the wires onto the electrodes, and
+added hot glue for extra stability.
+</p>
+<p>
+If you know some neuroscience, you might notice that we positioned the electrodes to fall roughly
+onto the motor cortex, as this is where we would expect the strongest signals for motor imagery.
+</p>
+<p>
+The tight fit was necessary, as the dry <a href="http://www.cognionics.com/index.php/products/sensors/flex">Cognionics electrodes</a> we were using (those octopus shaped
+things in the second picture) needed to be firmly on the person’s head to get a good signal.
+</p>
+<p>
+Being able to clean the headset turned out to be crucial as well. The Exploratorium staff gave us a
+hard time about the hygiene of the cap. We had to <a href="https://www.youtube.com/watch?v=BzEZHPlWUf0&amp;feature=youtu.be&amp;list=PLJIa96fD1_0UXQgJP8A-ihsBM0YiKRc_p">demonstrate cleaning the cap</a> with isopropyl
+alcohol to finally get approval for the exhibit. During the whole exhibit, we would clean the cap
+repeatedly between visitors (although most did not care too much).
+</p>
+</div>
+</div>
+<div class="outline-3" id="outline-container-org48531b1">
+<h3 id="org48531b1"><span class="section-number-3">2.3</span> Streaming the data</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<img alt="sm_board_1.png" src="/images/exploratorium/sm_board_1.png"/>
+<img alt="sm_headset_3.jpg" src="/images/exploratorium/sm_headset_3.jpg"/>
+</p>
+<p>
+For actually collecting the data, we used the excellent <a href="http://openbci.com/">OpenBCI</a>. The V3 wireless board was not stable yet, so we used the V2 version (an Arduino shield).
+</p>
+<p>
+We sampled the data at 250Hz, the maximum we could achieve with the OpenBCI board. It should in theory be possible to do more, but we didn’t have time to investigate for the expo.
+</p>
+</div>
+</div>
+<div class="outline-3" id="outline-container-orga23373e">
+<h3 id="orga23373e"><span class="section-number-3">2.4</span> Analysis</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+The classifier code is <a href="https://github.com/tomasero/mind-kinetics/tree/master/classifier">here</a>. Honestly, it’s really nasty though. I leave it as a reference, but I
+strongly suggest anyone replicating this to rewrite the code from scratch in a cleaner way.  (If I
+were to do it again, I would use a scikit-learn pipeline instead of the mdp one, and would clean up
+the code in many places.)
+</p>
+<p>
+The pipeline is as follows:
+</p>
+<ol class="org-ol">
+<li>Raw EEG data</li>
+<li>Identify and remove artifacts</li>
+<li>Extract features</li>
+<li>Classify</li>
+<li>Smooth out results</li>
+</ol>
+</div>
+<div class="outline-4" id="outline-container-orga97b038">
+<h4 id="orga97b038"><span class="section-number-4">2.4.1</span> Raw EEG</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+The raw EEG data is just collected from the OpenBCI using <a href="https://github.com/tomasero/mind-kinetics/blob/master/classifier/open_bci.py">open<sub>bci.py</sub></a>  (<a href="https://github.com/tomasero/mind-kinetics/blob/master/classifier/open_bci_v3.py">open<sub>bci</sub><sub>v3.py</sub></a> for V3).
+</p>
+</div>
+</div>
+<div class="outline-4" id="outline-container-org4e0b000">
+<h4 id="org4e0b000"><span class="section-number-4">2.4.2</span> Identify and remove artifacts</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<p>
+For identifying and removing artifacts we used independent components analysis (ICA). ICA is great
+at separating out the eye blinks in EEG. You can see the how the raw and transformed signals
+look. The spike around 2.5 to 3.0s is an eye blink. You can see how that gets neatly separated into
+2nd ICA component below. Notice also how the 5th component identifies the 60Hz line noise.
+</p>
+<div class="figure">
+<p><img alt="sm_ica_1.png" src="/images/exploratorium/sm_ica_1.png"/>
+</p>
+</div>
+<p>
+However, the eye blink component is not always the same index, so we need an automated way
+to identify which component  represents eye blinks. It turns out we can do this by looking at the <a href="https://en.wikipedia.org/wiki/Kurtosis">kurtosis</a> of each component.
+Kurtosis, roughly, measures how much of the distribution is in the tails. You can see why this metric makes sense through the histograms below.
+</p>
+<p>
+Because the eye blink has some smooth (and pretty high) spikes, the distribution of the values ends up having more values in the tails (check the 2nd component histogram below).
+</p>
+<div class="figure">
+<p><img alt="sm_ica_2.png" src="/images/exploratorium/sm_ica_2.png"/>
+</p>
+</div>
+</div>
+</div>
+<div class="outline-4" id="outline-container-org303958f">
+<h4 id="org303958f"><span class="section-number-4">2.4.3</span> Extract features</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<p>
+The features extracted are relatively simple.  We take a window of 256 samples (about 1 second) from
+each of the 8 channels, stepping by 32 samples.  We multiply this window by a <a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.kaiser.html">kaiser window</a> with
+beta = 14.
+</p>
+<p>
+Then, we take the magnitude of the Fourier transform of each window. This gives us the power of
+different frequencies at each point in time.
+</p>
+</div>
+</div>
+<div class="outline-4" id="outline-container-org0a8ecc7">
+<h4 id="org0a8ecc7"><span class="section-number-4">2.4.4</span> Classify</h4>
+<div class="outline-text-4" id="text-2-4-4">
+<p>
+To classify, we used a K-nearest neighbors classifier, with n=1 neighbors. This is probably the
+weakest part of the pipeline. If I were to do this again, I would use a random forest classifier or
+something similar. Still, it worked alright and was very fast to train and classify.
+</p>
+</div>
+</div>
+<div class="outline-4" id="outline-container-org1591022">
+<h4 id="org1591022"><span class="section-number-4">2.4.5</span> Smooth out results</h4>
+<div class="outline-text-4" id="text-2-4-5">
+<div class="figure">
+<p><img alt="sm_classify.png" src="/images/exploratorium/sm_classify.png"/>
+</p>
+</div>
+<p>
+In the image above, you can see the results on some training and test data. The classifier is
+trained on training data on samples below ~780 (the dotted line), and tested on samples above ~780.
+</p>
+<p>
+As you can see, the classifier varies a lot from sample to sample. So to give a more stable
+estimate, we apply a low-pass filter on the classified value. This is the output that we give to the arm.
+</p>
+</div>
+</div>
+</div>
+<div class="outline-3" id="outline-container-org058e7b9">
+<h3 id="org058e7b9"><span class="section-number-3">2.5</span> Display</h3>
+<div class="outline-text-3" id="text-2-5">
+<div class="figure">
+<p><img alt="sm_display.png" src="/images/exploratorium/sm_display.png"/>
+</p>
+</div>
+<p>
+The final part is displaying the information through some interface. My friend Tomás Vega made a
+nice web interface that listened to information through a websocket (using <a href="http://socket.io/">socket.io</a>), that my
+classifier could output information to.
+</p>
+<p>
+After the classifier trained on some samples, we showed output from the classifier on future
+samples, to also train the user to give consistent signals.
+</p>
+<p>
+All the web stuff is here:
+<a href="https://github.com/tomasero/mind-kinetics/tree/master/training">https://github.com/tomasero/mind-kinetics/tree/master/training</a>
+</p>
+<p>
+The web interface code is much cleaner than the classifier code, and potentially reusable.
+</p>
+</div>
+</div>
+<div class="outline-3" id="outline-container-org1a9141e">
+<h3 id="org1a9141e"><span class="section-number-3">2.6</span> That’s it!</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+We basically put together this thing in one month of work, with another month’s worth of maintenance. If this sounds crazy, that’s because it is.  There were countless times when I thought we would not make it, only to see the project survive miraculously over the next day.
+</p>
+<p>
+Of course, this project would not have been possible without the other people who contributed. John Naulty made most of the headset, Tomás Vega built the interface and helped with testing, and Jon Ferran and Alex Nolan built the actual arm. I am very grateful to the Exploratorium for hosting us, and the Cognitive Technology Group (now part of <a href="http://neurotechx.com/">NeurotechX</a>) and <a href="http://m0xy.com/">m0xy</a> for organizing this one-of-a-kind experience.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

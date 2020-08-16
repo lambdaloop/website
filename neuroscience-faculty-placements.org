@@ -1,0 +1,195 @@
+#+TITLE: Neuroscience faculty placements and school rankings
+
+* Introduction
+Faculty placement statistics in neuroscience are very hard to come by,
+even though this is extremely useful information in choosing schools
+or estimating chances at a given school.
+
+Most programs don't have a clearly visible list of faculty placements,
+and professors don't always keep track of alumni placements or may too
+young to have placed any students. Aspiring neuroscience students and
+post-docs, then, are often left to estimate their chances based on the
+perceived prestige of their school, a notoriously ambiguous metric.
+
+This is made harder by the fact that the rankings are not consistent.
+For instance, [[https://www.chronicle.com/article/NRC-Rankings-Overview-/124747][The Chronicle NRC rankings]] lists Brandeis and Caltech as
+top 10 by academic research, but the [[https://www.usnews.com/education/best-global-universities/search?country=united-states&subject=neuroscience-behavior&name=][US News ranking]] lists both as
+below top 50. Neither Princeton nor Carnegie Mellon are even listed in
+the NRC rankings, even though both are top-notch neuroscience research
+schools.
+
+Fortunately, people have been cataloging neuroscience students and
+faculty on [[https://neurotree.org][Neurotree]], along with PhD and post-doc positions. This
+allows us to estimate faculty placement rates for each university.
+
+* Methodology
+I scraped all the people associated with a list of schools. To determine
+whether someone is a professor, I check that they have at least one grad
+student listed (this can exclude some newer professors, placing them
+in "PhD unclear" category).
+
+Since people who completed a PhD but did not obtain a faculty position
+tend to be unlisted, I normalized the number of PhD students placed by all PhD
+(placed and unclear) and number of professors listed at institution
+(as another proxy for size).
+
+Ratio = PhD placed / (PhD placed + PhD unclear + Professors listed)
+
+This ratio is my current best estimate of the faculty placement rate.
+Depending on the amount and type of missing data on neurotree, this
+could be either an overestimate or underestimate (mostly depending on
+how many unplaced PhD students are listed).
+
+* PhD placement rankings
+Here is the table. Only schools with at least 20 listed PhDs placed
+are listed. Only a select set of schools outside America are listed
+for comparison, as I didn't try to do a thorough listing of these
+(most have few people in neurotree anyhow).
+
+
+| Institution                  | Ratio | PhD placed | PhD unclear | Professors listed |
+|------------------------------+-------+------------+-------------+-------------------|
+| ANU                          | 0.389 |         21 |          11 |                22 |
+| Johns Hopkins                | 0.369 |         93 |          59 |               100 |
+| MIT                          | 0.368 |        175 |          77 |               224 |
+| Rockefeller                  | 0.357 |         55 |          26 |                73 |
+| Oxford                       | 0.320 |        126 |          68 |               200 |
+| Cambridge                    | 0.314 |         89 |          48 |               146 |
+| Harvard Medical School       | 0.286 |         52 |          50 |                80 |
+| Brown                        | 0.250 |         85 |          50 |               205 |
+| Hebrew University            | 0.250 |         32 |          17 |                79 |
+| Harvard                      | 0.245 |        248 |          85 |               678 |
+| Johns Hopkins Medical School | 0.242 |         29 |          21 |                70 |
+| UCL                          | 0.240 |         88 |          68 |               211 |
+| Stanford                     | 0.233 |        222 |          95 |               636 |
+| Edinburgh                    | 0.228 |         29 |          21 |                77 |
+| Caltech                      | 0.218 |         83 |          33 |               264 |
+| Princeton                    | 0.213 |         63 |          46 |               187 |
+| Rutgers                      | 0.207 |         31 |          25 |                94 |
+| Yale                         | 0.198 |        158 |          89 |               551 |
+| UC Berkeley                  | 0.194 |        209 |         102 |               769 |
+| Concordia                    | 0.185 |         22 |          15 |                82 |
+| Chicago                      | 0.184 |        125 |          79 |               474 |
+| Penn                         | 0.179 |        157 |          94 |               624 |
+| Cornell                      | 0.177 |         69 |          48 |               272 |
+| McGill                       | 0.169 |         95 |          66 |               401 |
+| Carnegie Mellon              | 0.162 |         44 |          35 |               192 |
+| Michigan, Ann Arbor          | 0.162 |        165 |         106 |               748 |
+| Syracuse                     | 0.151 |         24 |          10 |               125 |
+| Columbia                     | 0.143 |        146 |          95 |               783 |
+| Rochester                    | 0.140 |         59 |          43 |               318 |
+| UCSF                         | 0.138 |         66 |          56 |               355 |
+| University of Washington     | 0.136 |        109 |          87 |               606 |
+| University of Iowa           | 0.132 |         70 |          65 |               395 |
+| Dartmouth                    | 0.130 |         21 |          29 |               112 |
+| University of Oregon         | 0.129 |         36 |          26 |               216 |
+| Baylor                       | 0.124 |         25 |          30 |               147 |
+| UW Madison                   | 0.123 |        113 |          90 |               712 |
+| Duke                         | 0.121 |         72 |          62 |               462 |
+| UCSD                         | 0.118 |        119 |          87 |               799 |
+| Indiana University           | 0.116 |         78 |          60 |               536 |
+| UCLA                         | 0.115 |        138 |         123 |               934 |
+| Brandeis                     | 0.112 |         26 |          13 |               194 |
+| OHSU                         | 0.111 |         20 |          37 |               123 |
+| CU Boulder                   | 0.109 |         38 |          40 |               272 |
+| UIUC                         | 0.109 |         65 |          46 |               488 |
+| Case Western                 | 0.108 |         30 |          28 |               220 |
+| UVA                          | 0.103 |         51 |          40 |               404 |
+| University of Toronto        | 0.103 |         74 |          67 |               578 |
+| U Mass Amherst               | 0.101 |         34 |          35 |               266 |
+| UC Irvine                    | 0.098 |         55 |          55 |               450 |
+| UMN                          | 0.098 |         94 |          79 |               790 |
+| Michigan State               | 0.094 |         41 |          43 |               353 |
+| SUNY Stony Brook             | 0.093 |         33 |          30 |               291 |
+| Ohio State                   | 0.092 |         48 |          46 |               426 |
+| Washington University        | 0.092 |         54 |          49 |               483 |
+| Vanderbilt                   | 0.089 |         45 |          50 |               408 |
+| University of Arizona        | 0.080 |         35 |          27 |               375 |
+| University of Utah           | 0.077 |         28 |          33 |               302 |
+| UC Davis                     | 0.075 |         40 |          63 |               430 |
+| Purdue                       | 0.075 |         34 |          41 |               379 |
+| UNC Chapel Hill              | 0.073 |         55 |          53 |               642 |
+| Penn State                   | 0.072 |         41 |          39 |               487 |
+| Florida State                | 0.071 |         28 |          24 |               345 |
+| Northwestern                 | 0.069 |         57 |          72 |               701 |
+| University of Maryland       | 0.068 |         38 |          36 |               482 |
+| University of Florida        | 0.068 |         50 |          50 |               634 |
+| UT Austin                    | 0.066 |         57 |          59 |               743 |
+| NYU                          | 0.064 |         53 |          55 |               715 |
+| USC                          | 0.059 |         48 |          44 |               723 |
+| Emory                        | 0.056 |         27 |          54 |               397 |
+| Boston University            | 0.056 |         39 |          55 |               597 |
+| Université de Montréal       | 0.053 |         20 |          36 |               319 |
+| University of Pittsburgh     | 0.053 |         31 |          68 |               487 |
+
+
+* Postdoc placement rankings
+With the data from neurotree, we can also compute a
+similar table but for post-doctorates, for which rankings are very
+hard to find. Interestingly, this list is a bit different from the PhD
+faculty placement rates.
+
+| Institution                  | Ratio | Post-docs placed | Post-docs unclear | Professors listed |
+|------------------------------+-------+------------------+-------------------+-------------------|
+| Caltech                      | 0.537 |              116 |                23 |                77 |
+| Rockefeller                  | 0.535 |              114 |                20 |                79 |
+| NIMH                         | 0.500 |               76 |                13 |                63 |
+| NYU School of Medicine       | 0.438 |               21 |                10 |                17 |
+| Harvard                      | 0.428 |              151 |                50 |               152 |
+| Cambridge                    | 0.423 |               60 |                25 |                57 |
+| Salk Institute               | 0.407 |               88 |                24 |               104 |
+| MGH                          | 0.393 |               22 |                15 |                19 |
+| MIT                          | 0.392 |              155 |                37 |               203 |
+| UC Berkeley                  | 0.390 |              120 |                49 |               139 |
+| Johns Hopkins                | 0.389 |               65 |                36 |                66 |
+| Yale School of Medicine      | 0.387 |               24 |                18 |                20 |
+| Harvard Medical School       | 0.374 |              145 |                59 |               184 |
+| Stanford                     | 0.372 |              186 |                62 |               252 |
+| NIH                          | 0.367 |               66 |                26 |                88 |
+| Carnegie Mellon              | 0.362 |               21 |                14 |                23 |
+| UCSD                         | 0.359 |              111 |                68 |               130 |
+| Oxford                       | 0.358 |               64 |                51 |                64 |
+| University of Arizona        | 0.348 |               23 |                21 |                22 |
+| CSHL                         | 0.347 |               33 |                13 |                49 |
+| CU Boulder                   | 0.333 |               27 |                20 |                34 |
+| UCSF                         | 0.333 |              160 |                58 |               263 |
+| Washington University        | 0.331 |               58 |                38 |                79 |
+| UCL                          | 0.329 |               92 |                52 |               136 |
+| UVA                          | 0.328 |               20 |                20 |                21 |
+| Columbia                     | 0.323 |              106 |                52 |               170 |
+| Princeton                    | 0.308 |               44 |                25 |                74 |
+| Yale                         | 0.307 |               95 |                51 |               163 |
+| UW Madison                   | 0.300 |               51 |                50 |                69 |
+| University of Iowa           | 0.296 |               21 |                28 |                22 |
+| UCLA                         | 0.294 |              112 |                76 |               193 |
+| NYU                          | 0.287 |               64 |                40 |               119 |
+| Cornell                      | 0.287 |               35 |                23 |                64 |
+| Vanderbilt                   | 0.287 |               49 |                45 |                77 |
+| UMN                          | 0.282 |               31 |                37 |                42 |
+| Brandeis                     | 0.282 |               20 |                13 |                38 |
+| University of Washington     | 0.278 |               79 |                64 |               141 |
+| SUNY Stony Brook             | 0.278 |               20 |                19 |                33 |
+| Rochester                    | 0.276 |               35 |                37 |                55 |
+| Rutgers                      | 0.276 |               27 |                25 |                46 |
+| UC Irvine                    | 0.273 |               39 |                34 |                70 |
+| Duke                         | 0.271 |               61 |                44 |               120 |
+| Baylor                       | 0.263 |               46 |                34 |                95 |
+| Johns Hopkins Medical School | 0.260 |               45 |                26 |               102 |
+| Indiana University           | 0.250 |               23 |                24 |                45 |
+| Boston University            | 0.243 |               25 |                30 |                48 |
+| Chicago                      | 0.239 |               33 |                40 |                65 |
+| Penn                         | 0.239 |               78 |                67 |               182 |
+| Brown                        | 0.232 |               32 |                41 |                65 |
+| OHSU                         | 0.231 |               39 |                34 |                96 |
+| University of Florida        | 0.225 |               20 |                26 |                43 |
+| McGill                       | 0.219 |               35 |                44 |                81 |
+| UNC Chapel Hill              | 0.212 |               36 |                43 |                91 |
+| Michigan, Ann Arbor          | 0.200 |               33 |                55 |                77 |
+| University of Toronto        | 0.191 |               21 |                44 |                45 |
+| UC Davis                     | 0.189 |               32 |                48 |                89 |
+| Northwestern                 | 0.173 |               37 |                48 |               129 |
+| University of Pittsburgh     | 0.166 |               35 |                49 |               127 |
+| Emory                        | 0.145 |               21 |                42 |                82 |
+
+You can find the code for computing these table along with brief
+instructions here: https://github.com/lambdaloop/neurotree-scrape
