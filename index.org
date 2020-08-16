@@ -2,6 +2,7 @@
 #+HTML_HEAD: <link href="/css/code-theme.css" rel="stylesheet">
 #+HTML_HEAD: <link href="/css/style.css" rel="stylesheet">
 #+HTML_HEAD: <script src="/js/footnotes.js"></script>
+#+AUTHOR: lambdaloop
 
 A test index page.
 
