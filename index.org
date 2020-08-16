@@ -1,6 +1,8 @@
-#+TITLE: Index
+#+TITLE: lambdaloop
 
-A test index page.
+Various essays, including thoughts and writeups of my different projects.
 
-- [[file:test.org][Some test post]]
+Neuroscience
 - [[file:neuroscience-faculty-placements.org][Neuroscience faculty placements]]
+- [[file:bci-exploratorium.org][Mind Controlled Robotic Arm at The Exploratorium]]
+- [[file:memory-encoding-openbci.org][Predicting Memory Encoding using an OpenBCI]]
