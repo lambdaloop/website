@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2020-08-16 Sun 12:29 -->
+<!-- 2020-08-16 Sun 13:32 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>README</title>
@@ -223,8 +223,20 @@
 setup
 </p>
 <ul class="org-ul">
+<li>install emacs (I use emacs 27.1)</li>
 <li>clone org-mode repo</li>
-<li>run make in the repo</li>
+<li>run <code>make</code> in the repo</li>
+<li>update the path to org-mode in scripts/batch-org-to-html.el</li>
+<li>run <code>pip install beautifulsoup4</code> for the python script</li>
+</ul>
+<p>
+generation
+</p>
+<ul class="org-ul">
+<li>run generate.py
+<ul class="org-ul">
+<li>this will process all the org files and generate appropriate html pages for them</li>
+</ul></li>
 </ul>
 </div>
 </body>

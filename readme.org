@@ -1,5 +1,12 @@
 #+TITLE: README
 
 setup
+- install emacs (I use emacs 27.1)
 - clone org-mode repo
-- run make in the repo
+- run ~make~ in the repo
+- update the path to org-mode in scripts/batch-org-to-html.el
+- run ~pip install beautifulsoup4~ for the python script
+
+generation
+- run generate.py
+  + this will process all the org files and generate appropriate html pages for them
