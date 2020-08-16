@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2020-08-16 Sun 12:16 -->
+<!-- 2020-08-16 Sun 12:29 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Test webpage</title>
+<title>README</title>
 <meta content="Org mode" name="generator"/>
-<meta content="lambdaloop" name="author"/>
+<meta content="Pierre" name="author"/>
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -191,9 +191,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link href="/css/code-theme.css" rel="stylesheet"/>
-<link href="/css/style.css" rel="stylesheet"/>
-<script src="/js/footnotes.js"></script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
@@ -218,105 +215,17 @@
     /*]]>*///-->
 // @license-end
 </script>
-<script>
-window.MathJax = {
-  chtml: {
-    displayAlign: "left",
-    displayIndent: "1em",
-    scale: 100 / 100
-  },
-  svg: {
-    scale: 100 / 100
-  },
-  tex: {
-    tags: "ams",
-    multlineWidth: "85%",
-    tagSide: "right",
-    tagIndent: ".8em",
-    autoload: {
-      color: [],
-      colorV2: ['color']
-    },
-    packages: {'[+]': ['noerrors']}
-  },
-  options: {
-    ignoreHtmlClass: 'tex2jax_ignore',
-    processHtmlClass: 'tex2jax_process'
-  },
-  loader: {
-    load: ['[tex]/noerrors']
-  }
-};
-</script>
-<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Test webpage</h1>
+<h1 class="title">README</h1>
 <p>
-The things that need to be figured out are:
+setup
 </p>
 <ul class="org-ul">
-<li class="on"><code>[X]</code> how to do footnotes</li>
-<li class="on"><code>[X]</code> how to put in images?</li>
-<li class="on"><code>[X]</code> how to convert the org to html</li>
-<li class="on"><code>[X]</code> how to control the html export</li>
-<li class="on"><code>[X]</code> how to have nice styling for that html?</li>
-<li class="on"><code>[X]</code> adding code with highlights</li>
+<li>clone org-mode repo</li>
+<li>run make in the repo</li>
 </ul>
-<p>
-I will add a <a href="https://www.google.com/">link</a> to something here.
-</p>
-<p>
-Here’s a footnote <sup><a class="footref" href="#fn.1" id="fnr.1">1</a></sup>
-</p>
-<div class="org-src-container">
-<pre class="src src-python"><span class="org-keyword">while</span> <span class="org-constant">True</span>:
-    <span class="org-variable-name">ret</span>, <span class="org-variable-name">img</span> = cap.read()
-    <span class="org-keyword">if</span> <span class="org-keyword">not</span> ret: <span class="org-keyword">break</span>
-    <span class="org-variable-name">outname</span> = os.path.join(outfolder, <span class="org-string">"img{:03d}.png"</span>.<span class="org-builtin">format</span>(framenum))
-    cv2.imwrite(outname, img)
-    <span class="org-variable-name">framenum</span> += 1
-</pre>
 </div>
-<p>
-Here’s some more text to see what happens. Here’s another inline footnote <sup><a class="footref" href="#fn.2" id="fnr.2">2</a></sup>. And more text.
-</p>
-<div class="figure">
-<p><img alt="cat/spider image" src="20200427_anipose_logo.png" title="Action!" width="400px"/>
-</p>
-<p><span class="figure-number">Figure 1: </span>a test image</p>
-</div>
-<p>
-Now I just need a structure for all this stuff
-</p>
-<p>
-An equation for a system:
-\[\dot \theta_i = \omega_i + \sum_j \alpha_{ij} H((\theta_j - \theta_i) - (\bar \theta_j - \bar \theta_i))\]
-</p>
-<p>
-\(\theta_i\) = phase of oscillator \(i\)
-</p>
-<p>
-\(\omega_i\) = frequency of oscillator \(i\)
-</p>
-<p>
-\(H(\Delta \theta)\) = coupling function
-</p>
-<p>
-\(\bar \theta_i\) = phase offset of oscillator \(i\)
-</p>
-<p>
-\(\alpha_{ij}\) = weight on coupling
-</p>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-<div class="footdef"><sup><a class="footnum" href="#fnr.1" id="fn.1">1</a></sup> <div class="footpara"><p class="footpara">
-I’m gonna expand on this footnote.
-</p></div></div>
-<div class="footdef"><sup><a class="footnum" href="#fnr.2" id="fn.2">2</a></sup> <div class="footpara"><p class="footpara">This is the inline definition of this footnote</p></div></div>
-</div>
-</div></div>
 </body>
 </html>

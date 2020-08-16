@@ -32,7 +32,7 @@ Here's some more text to see what happens. Here's another inline footnote [fn:: 
 
 #+CAPTION: a test image
 #+ATTR_HTML: :alt cat/spider image :title Action! :width 400px
-[[file:20200427_anipose_logo.png]]
+[[file:img/20200427_anipose_logo.png]]
 
 
 Now I just need a structure for all this stuff
