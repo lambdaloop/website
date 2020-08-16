@@ -1,0 +1,5 @@
+#+TITLE: README
+
+setup
+- clone org-mode repo
+- run make in the repo

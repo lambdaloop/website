@@ -4,7 +4,7 @@
 <!-- 2020-08-16 Sun 12:16 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Index</title>
+<title>Test webpage</title>
 <meta content="Org mode" name="generator"/>
 <meta content="lambdaloop" name="author"/>
 <style type="text/css">
@@ -218,16 +218,105 @@
     /*]]>*///-->
 // @license-end
 </script>
+<script>
+window.MathJax = {
+  chtml: {
+    displayAlign: "left",
+    displayIndent: "1em",
+    scale: 100 / 100
+  },
+  svg: {
+    scale: 100 / 100
+  },
+  tex: {
+    tags: "ams",
+    multlineWidth: "85%",
+    tagSide: "right",
+    tagIndent: ".8em",
+    autoload: {
+      color: [],
+      colorV2: ['color']
+    },
+    packages: {'[+]': ['noerrors']}
+  },
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  },
+  loader: {
+    load: ['[tex]/noerrors']
+  }
+};
+</script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Index</h1>
+<h1 class="title">Test webpage</h1>
 <p>
-A test index page.
+The things that need to be figured out are:
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> how to do footnotes</li>
+<li class="on"><code>[X]</code> how to put in images?</li>
+<li class="on"><code>[X]</code> how to convert the org to html</li>
+<li class="on"><code>[X]</code> how to control the html export</li>
+<li class="on"><code>[X]</code> how to have nice styling for that html?</li>
+<li class="on"><code>[X]</code> adding code with highlights</li>
+</ul>
+<p>
+I will add a <a href="https://www.google.com/">link</a> to something here.
 </p>
 <p>
-<a href="/test">Some test post</a>
+Here’s a footnote <sup><a class="footref" href="#fn.1" id="fnr.1">1</a></sup>
 </p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">while</span> <span class="org-constant">True</span>:
+    <span class="org-variable-name">ret</span>, <span class="org-variable-name">img</span> = cap.read()
+    <span class="org-keyword">if</span> <span class="org-keyword">not</span> ret: <span class="org-keyword">break</span>
+    <span class="org-variable-name">outname</span> = os.path.join(outfolder, <span class="org-string">"img{:03d}.png"</span>.<span class="org-builtin">format</span>(framenum))
+    cv2.imwrite(outname, img)
+    <span class="org-variable-name">framenum</span> += 1
+</pre>
 </div>
+<p>
+Here’s some more text to see what happens. Here’s another inline footnote <sup><a class="footref" href="#fn.2" id="fnr.2">2</a></sup>. And more text.
+</p>
+<div class="figure">
+<p><img alt="cat/spider image" src="20200427_anipose_logo.png" title="Action!" width="400px"/>
+</p>
+<p><span class="figure-number">Figure 1: </span>a test image</p>
+</div>
+<p>
+Now I just need a structure for all this stuff
+</p>
+<p>
+An equation for a system:
+\[\dot \theta_i = \omega_i + \sum_j \alpha_{ij} H((\theta_j - \theta_i) - (\bar \theta_j - \bar \theta_i))\]
+</p>
+<p>
+\(\theta_i\) = phase of oscillator \(i\)
+</p>
+<p>
+\(\omega_i\) = frequency of oscillator \(i\)
+</p>
+<p>
+\(H(\Delta \theta)\) = coupling function
+</p>
+<p>
+\(\bar \theta_i\) = phase offset of oscillator \(i\)
+</p>
+<p>
+\(\alpha_{ij}\) = weight on coupling
+</p>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+<div class="footdef"><sup><a class="footnum" href="#fnr.1" id="fn.1">1</a></sup> <div class="footpara"><p class="footpara">
+I’m gonna expand on this footnote.
+</p></div></div>
+<div class="footdef"><sup><a class="footnum" href="#fnr.2" id="fn.2">2</a></sup> <div class="footpara"><p class="footpara">This is the inline definition of this footnote</p></div></div>
+</div>
+</div></div>
 </body>
 </html>
