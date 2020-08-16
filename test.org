@@ -1,0 +1,50 @@
+#+TITLE: Test webpage
+#+HTML_HEAD: <link href="code-theme.css" rel="stylesheet">
+#+HTML_HEAD: <link href="style.css" rel="stylesheet">
+#+HTML_HEAD: <script src="footnotes.js"></script>
+#+HTML_MATHJAX: align: left indent: 1em scale: 100
+
+The things that need to be figured out are:
+- [X] how to do footnotes
+- [X] how to put in images?
+- [X] how to convert the org to html
+- [X] how to control the html export
+- [X] how to have nice styling for that html?
+- [X] adding code with highlights
+
+I will add a [[https://www.google.com/][link]] to something here.
+
+Here's a footnote [fn:blah]
+[fn:blah] I'm gonna expand on this footnote.
+
+
+#+BEGIN_SRC python
+while True:
+    ret, img = cap.read()
+    if not ret: break
+    outname = os.path.join(outfolder, "img{:03d}.png".format(framenum))
+    cv2.imwrite(outname, img)
+    framenum += 1
+#+END_SRC
+
+Here's some more text to see what happens. Here's another inline footnote [fn:: This is the inline definition of this footnote]. And more text.
+
+#+CAPTION: a test image
+#+ATTR_HTML: :alt cat/spider image :title Action! :width 400px
+[[file:20200427_anipose_logo.png]]
+
+
+Now I just need a structure for all this stuff
+
+An equation for a system:
+$$\dot \theta_i = \omega_i + \sum_j \alpha_{ij} H((\theta_j - \theta_i) - (\bar \theta_j - \bar \theta_i))$$
+
+$\theta_i$ = phase of oscillator $i$
+
+$\omega_i$ = frequency of oscillator $i$
+
+$H(\Delta \theta)$ = coupling function
+
+$\bar \theta_i$ = phase offset of oscillator $i$
+
+$\alpha_{ij}$ = weight on coupling

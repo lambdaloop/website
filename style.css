@@ -1,0 +1,179 @@
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%
+}
+
+body {
+  margin: 0
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0
+}
+
+progress {
+  vertical-align: baseline
+}
+
+[hidden],
+template {
+  display: none
+}
+
+/* a { */
+/*   background-color: transparent; */
+/*   -webkit-text-decoration-skip: objects */
+/* } */
+
+a:active,
+a:hover {
+  outline-width: 0
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+  text-decoration: underline dotted
+}
+
+b,
+strong {
+  font-weight: inherit;
+  font-weight: bolder
+}
+
+dfn {
+  font-style: italic
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0
+}
+
+mark {
+  background-color: #ff0;
+  color: #000
+}
+
+small {
+  font-size: 80%
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline
+}
+
+sub {
+  bottom: -.25em
+}
+
+sup {
+    top: -.5em;
+    margin-left: -0.18em;
+}
+
+img {
+  border-style: none
+}
+
+svg:not(:root) {
+  overflow: hidden
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+pre.src {
+    padding: 8pt;
+}
+
+a {
+  color: #527d9a;
+  text-decoration: none
+}
+
+a:hover {
+  color: #035;
+  border-bottom: 1px dotted
+}
+
+figure {
+  padding: 0;
+  margin: 1em auto;
+  text-align: center
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle
+}
+
+body {
+  width: 95%;
+  margin: 2% auto;
+  font-size: 14px;
+  line-height: 1.4em;
+  font-family: Georgia, serif;
+  color: #333
+}
+
+
+@media screen and (min-width:600px) {
+  body {
+    font-size: 16px
+  }
+}
+
+@media screen and (min-width:910px) {
+  body {
+    width: 900px
+  }
+}
+
+::-moz-selection {
+  background: #d6edff
+}
+
+::selection {
+  background: #d6edff
+}
+
+p {
+  margin: 1em auto
+}
