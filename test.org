@@ -1,7 +1,7 @@
 #+TITLE: Test webpage
-#+HTML_HEAD: <link href="code-theme.css" rel="stylesheet">
-#+HTML_HEAD: <link href="style.css" rel="stylesheet">
-#+HTML_HEAD: <script src="footnotes.js"></script>
+#+HTML_HEAD: <link href="/css/code-theme.css" rel="stylesheet">
+#+HTML_HEAD: <link href="/css/style.css" rel="stylesheet">
+#+HTML_HEAD: <script src="/js/footnotes.js"></script>
 #+HTML_MATHJAX: align: left indent: 1em scale: 100
 
 The things that need to be figured out are:

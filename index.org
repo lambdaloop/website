@@ -1,8 +1,9 @@
 #+TITLE: Index
-#+HTML_HEAD: <link href="code-theme.css" rel="stylesheet">
-#+HTML_HEAD: <link href="style.css" rel="stylesheet">
-#+HTML_HEAD: <script src="footnotes.js"></script>
+#+HTML_HEAD: <link href="/css/code-theme.css" rel="stylesheet">
+#+HTML_HEAD: <link href="/css/style.css" rel="stylesheet">
+#+HTML_HEAD: <script src="/js/footnotes.js"></script>
 
 A test index page.
 
 [[file:test.org][Some test post]]
+
