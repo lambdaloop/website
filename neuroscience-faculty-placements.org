@@ -40,6 +40,9 @@ Depending on the amount and type of missing data on neurotree, this
 could be either an overestimate or underestimate (mostly depending on
 how many unplaced PhD students are listed).
 
+You can find the code for computing these tables along with brief
+instructions here: https://github.com/lambdaloop/neurotree-scrape
+
 * PhD placement rankings
 Here is the table. Only schools with at least 20 listed PhDs placed
 are listed. Only a select set of schools outside America are listed
@@ -190,6 +193,3 @@ faculty placement rates.
 | Northwestern                 | 0.173 |               37 |                48 |               129 |
 | University of Pittsburgh     | 0.166 |               35 |                49 |               127 |
 | Emory                        | 0.145 |               21 |                42 |                82 |
-
-You can find the code for computing these table along with brief
-instructions here: https://github.com/lambdaloop/neurotree-scrape
