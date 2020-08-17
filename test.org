@@ -44,3 +44,12 @@ $H(\Delta \theta)$ = coupling function
 $\bar \theta_i$ = phase offset of oscillator $i$
 
 $\alpha_{ij}$ = weight on coupling
+
+
+#+begin_quote
+Those who profess to favor freedom, and yet deprecate agitation, are
+men who want rain without thunder and lightning.  They want the ocean
+without the roar of its many waters.
+
+-- Frederick Douglass
+#+end_quote
