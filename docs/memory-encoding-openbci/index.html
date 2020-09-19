@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2020-08-16 Sun 13:56 -->
+<!-- 2020-09-18 Fri 10:13 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Predicting Memory Encoding using an OpenBCI</title>
+<title>Predicting memory encoding using an OpenBCI</title>
 <meta content="Org mode" name="generator"/>
-<meta content="Pierre" name="author"/>
+<meta content="lambdaloop" name="author"/>
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -195,47 +195,69 @@
 <link href="/css/style.css" rel="stylesheet"/>
 <script src="/js/footnotes.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
 <!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.cacheClassElem = elem.className;
-         elem.cacheClassTarget = target.className;
-         target.className = "code-highlighted";
-         elem.className   = "code-highlighted";
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(elem.cacheClassElem)
-         elem.className = elem.cacheClassElem;
-       if(elem.cacheClassTarget)
-         target.className = elem.cacheClassTarget;
-     }
-    /*]]>*///-->
-// @license-end
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
 </script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Predicting Memory Encoding using an OpenBCI</h1>
+<h1 class="title">Predicting memory encoding using an OpenBCI</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org03337e0">1. Experiment</a>
+<li><a href="#org66f293b">1. Experiment</a>
 <ul>
-<li><a href="#orgfc61c97">1.1. Start by attaching the OpenBCI electrodes to the participant’s head</a></li>
-<li><a href="#org5e266ad">1.2. Check connections using the OpenBCI processing sketch</a></li>
-<li><a href="#org7f28915">1.3. Record positions of EEG according to 10-20 system</a></li>
-<li><a href="#org0dd6c7e">1.4. Present list of words and record</a></li>
-<li><a href="#org18fd999">1.5. Test recall</a></li>
+<li><a href="#org6388388">1.1. Start by attaching the OpenBCI electrodes to the participant’s head</a></li>
+<li><a href="#org0a71f30">1.2. Check connections using the OpenBCI processing sketch</a></li>
+<li><a href="#org6cab3e9">1.3. Record positions of EEG according to 10-20 system</a></li>
+<li><a href="#org2231522">1.4. Present list of words and record</a></li>
+<li><a href="#org0514352">1.5. Test recall</a></li>
 </ul>
 </li>
-<li><a href="#orgde5d9da">2. Analysis</a></li>
+<li><a href="#org4ca5cc6">2. Analysis</a></li>
 </ul>
 </div>
 </div>
@@ -280,12 +302,12 @@ Before we begin, all our code is open-source and you can find it here:
 <p>
 Though the README file for the code is decent, I’ll describe the experiment in even more detail below.
 </p>
-<div class="outline-2" id="outline-container-org03337e0">
-<h2 id="org03337e0"><span class="section-number-2">1</span> Experiment</h2>
+<div class="outline-2" id="outline-container-org66f293b">
+<h2 id="org66f293b"><span class="section-number-2">1</span> Experiment</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div class="outline-3" id="outline-container-orgfc61c97">
-<h3 id="orgfc61c97"><span class="section-number-3">1.1</span> Start by attaching the OpenBCI electrodes to the participant’s head</h3>
+<div class="outline-3" id="outline-container-org6388388">
+<h3 id="org6388388"><span class="section-number-3">1.1</span> Start by attaching the OpenBCI electrodes to the participant’s head</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 <img alt="sm_setup_1.jpg" src="/images/eeg-memory/sm_setup_1.jpg"/>
@@ -310,8 +332,8 @@ out on potentially useful results.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org5e266ad">
-<h3 id="org5e266ad"><span class="section-number-3">1.2</span> Check connections using the OpenBCI processing sketch</h3>
+<div class="outline-3" id="outline-container-org0a71f30">
+<h3 id="org0a71f30"><span class="section-number-3">1.2</span> Check connections using the OpenBCI processing sketch</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="figure">
 <p><img alt="alpha.png" src="/images/eeg-memory/alpha.png" style="max-height: 350px"/>
@@ -331,8 +353,8 @@ the reference electrodes!), so we secure them properly.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org7f28915">
-<h3 id="org7f28915"><span class="section-number-3">1.3</span> Record positions of EEG according to 10-20 system</h3>
+<div class="outline-3" id="outline-container-org6cab3e9">
+<h3 id="org6cab3e9"><span class="section-number-3">1.3</span> Record positions of EEG according to 10-20 system</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="figure">
 <p><img alt="sm_10_20.png" src="/images/eeg-memory/sm_10_20.png"/>
@@ -349,8 +371,8 @@ then run multiple experiments with the same positions.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org0dd6c7e">
-<h3 id="org0dd6c7e"><span class="section-number-3">1.4</span> Present list of words and record</h3>
+<div class="outline-3" id="outline-container-org2231522">
+<h3 id="org2231522"><span class="section-number-3">1.4</span> Present list of words and record</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="figure">
 <p><img alt="sm_experiment.jpg" src="/images/eeg-memory/sm_experiment.jpg"/>
@@ -381,8 +403,8 @@ test.  To keep the experiment controlled, it’s better to have each subject wai
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org18fd999">
-<h3 id="org18fd999"><span class="section-number-3">1.5</span> Test recall</h3>
+<div class="outline-3" id="outline-container-org0514352">
+<h3 id="org0514352"><span class="section-number-3">1.5</span> Test recall</h3>
 <div class="outline-text-3" id="text-1-5">
 <div class="figure">
 <p><img alt="sm_recognize.png" src="/images/eeg-memory/sm_recognize.png"/>
@@ -406,8 +428,8 @@ depending on whether the word was marked as recognized or not by the subject.
 </div>
 </div>
 </div>
-<div class="outline-2" id="outline-container-orgde5d9da">
-<h2 id="orgde5d9da"><span class="section-number-2">2</span> Analysis</h2>
+<div class="outline-2" id="outline-container-org4ca5cc6">
+<h2 id="org4ca5cc6"><span class="section-number-2">2</span> Analysis</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 You can finally move on to the really interesting part: the analysis!

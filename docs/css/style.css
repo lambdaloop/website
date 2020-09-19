@@ -95,7 +95,7 @@ sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline
+  vertical-align: baseline;
 }
 
 sub {
@@ -104,7 +104,7 @@ sub {
 
 sup {
     top: -.5em;
-    margin-left: -0.18em;
+    /* margin-left: -0.18em; */
 }
 
 img {

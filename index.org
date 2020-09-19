@@ -4,5 +4,5 @@ Various essays, including thoughts and writeups of my different projects.
 
 Neuroscience
 - [[file:neuroscience-faculty-placements.org][Neuroscience faculty placements]]
-- [[file:bci-exploratorium.org][Mind Controlled Robotic Arm at The Exploratorium]]
-- [[file:memory-encoding-openbci.org][Predicting Memory Encoding using an OpenBCI]]
+- [[file:bci-exploratorium.org][Mind controlled robotic arm at The Exploratorium]]
+- [[file:memory-encoding-openbci.org][Predicting memory encoding using an OpenBCI]]

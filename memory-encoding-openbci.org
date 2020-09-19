@@ -1,4 +1,4 @@
-#+TITLE: Predicting Memory Encoding using an OpenBCI
+#+TITLE: Predicting memory encoding using an OpenBCI
  
 #+ATTR_HTML: :style max-height: 450px
 [[file:images/eeg-memory/sm_attention_cartoon_zhanna.png]]

@@ -8,8 +8,8 @@ import shutil
 
 from bs4 import BeautifulSoup
 
-# script_path = pathlib.Path(__file__).parent.absolute()
-script_path = "/jellyfish/art/website/scripts"
+script_path = pathlib.Path(__file__).parent.absolute()
+# script_path = "/jellyfish/art/website/scripts"
 
 def convert_org_file(fname):
     cmd = ["emacs", "-q", "--batch",

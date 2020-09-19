@@ -1,0 +1,39 @@
+#+TITLE: Augmented reality in Dennou Coil
+
+A summary of the augmented reality concepts presented in the anime [[https://en.wikipedia.org/wiki/Denn%C5%8D_Coil][Dennou Coil]].
+
+We can look at this show as a specific case study of how the future of our interaction with computers /could/ be. By looking at the choices that the show makes to depict a consistent and rich world, we might also anticipate issues that might arise in the future, even if we ultimately converges on a different path.
+
+In this review, I'll try to avoid discussion of the more fantastical elements of the show and focus more on what seems plausible within the next few years.
+
+* Other people who wrote about this
+
+https://augmented.org/2017/04/what-if-your-augmented-pet-felt-real/
+https://augmented.org/2017/04/what-if-your-augmented-pet-felt-real-part-2/
+
+https://proquet.mit.edu/sites/default/files/documents/Roquet-2016-From%20Animation%20to%20Augmentation.pdf
+
+https://shoutengine.com/PlanetTyroPopCultureMediaDiscussionReviews/dennou-coil-enjoyable-light-augmented-reality-cu-34652
+
+
+
+* Shared AR world
+
+In the Dennou Coil world, the augmented reality world is shared between all the users. This is perhaps the most important choice that the creators of Dennou Coil made in the series, and it influences the perspective of the show on everything else. In this shared AR world, anyone can see what anyone else sees and people can interact with other people's digital objects (even steal them!). This is a roughly similar to the shared spots like gyms in [[https://en.wikipedia.org/wiki/Pok%C3%A9mon_Go][Pokemon Go]], although the shared interaction in Dennou Coil is done through AR glasses and thus much more detailed. 
+# - example of stolen dog
+
+This introduces some interesting applications but also new problems. My favorite application is the ability of any user to introduce atmospheric lighting, as in the example below. With a simple interface, someone can create the visual appearance and sound of thunder! Certainly, this would enable new forms of entertainment and perhaps new forms of interaction across people.
+# - thunder example
+
+Another possible use of the shared AR space is to hide spaces from other people wearing the same glasses. This does not currently feel possible with the narrow field of view and low resolution of the AR glasses currently available, but in a fully immersive setting it makes people look the other way, usually not thinking to remove their glasses. It's unclear to what extent this would be useful in modern life, and whether it may even be detrimental. 
+# - example of hiding behind AR
+
+* Augmented and physical reality interaction
+
+
+
+- bag UI
+
+* Virtual screens
+
+* Security and privacy

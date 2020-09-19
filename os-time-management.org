@@ -1,0 +1,55 @@
+#+TITLE: Lessons in time management from operating systems
+
+When I first read [[https://www.goodreads.com/book/show/25666050-algorithms-to-live-by][Algorithms to Live By]], I was fascinated by the parallels between computer science and cognitive science. At the time, I made a couple of small changes, notably buying a stand for my clothes and making more heavy use of the "recently modified" heuristic when sorting things (or at least, feeling more comfortable with it as reasonably optimal). Three years later, the idea that stuck around is the parallel between scheduling tasks in operating systems and in life.
+
+The book covers scheduling tradeoffs at a pretty high level, focusing primarily on the [[https://en.wikipedia.org/wiki/Earliest_deadline_first_scheduling][earliest deadline first (EDF)]] and [[https://en.wikipedia.org/wiki/Shortest_job_next][shortest job next (SJN)]] algorithms, and has brief discussions on priority inversion and context switching. The book's focus is understandable given the its audience and space constraints, but the recommendations for practical time management feel somewhat shallow (e.g. beware of context switching, check prerequisites for tasks). Here, I'd like to explore these parallels in more detail, and in the process understand what specific strategies may be learned from the decades of research in operating system scheduling, flavored by what we know about human constraints.
+
+
+* Parallels between human and OS scheduling
+
+The more that I read about scheduling in operating systems, the more the parallels with human time management become clear. In fact, a lot of the discussion within OS scheduling is rather lucid, and sheds light in the tradeoffs of human time management.
+
+# - context switching / time slices / interrupts
+** Context switching: cognitive vs procedural
+# Christian and Griffiths make a big deal out of this in /Algorithms to Live By/, and how bad humans are at context switching, something that is covered again and again in the literature.
+Looking at OS context switching, we see that there are actually two different costs to context switches, which I distinguish as "procedural" and "cognitive". [fn::In the OS literature, "procedural" and "cognitive" costs are generally referred to as "direct" and "indirect" costs.] When switching tasks in a CPU, the biggest task is just switching out the values of the registers. This would be a "procedural" cost. However, as a CPU executes, it builds up state in various caches, which must be refilled again when switching tasks. This cost, much harder to quantify, would be a "cognitive" cost.
+
+For humans, a "procedural" cost of switching tasks involves the physical setup of a task (opening a document on the computer, setting a brushes for painting, etc), whereas the "cognitive" cost is due to switching out the working memory maintained while working on a task (e.g. what sentence to write next, in which region to paint). The human task-switching literature has focused primarily on quantifying the cognitive cost of task switching. However, this cost may in fact be irrelevant if the procedural cost is high enough. Interestingly, for operating systems, it may also be negligible for simple tasks where both tasks fit in cache. It's possible that there are tasks simple enough that they incur almost no cognitive cost for humans as well.
+
+
+** Time to completion: often unknown
+Something that I find really interesting in the OS literature, which is completely glossed over in /Algorithms to Live By/, is that most of modern scheduling algorithms don't make any assumptions about the length of each task when scheduling them. People are notoriously bad at estimating tasks[fn:students-paper], so having a system which can process multiple tasks of arbitrary lengths robustly seems rather interesting. In both of the modern schedulers described below, the scheduler is designed to handle a mix of long and short running tasks with minimal sacrifices on the run time of either.
+
+[fn:students-paper] For instance, the majority of students underestimated how long it would take to finish a paper by about 50% when optimistic, and even by 12% when asked to make a pessimistic estimate.  (Buehler, Griffin, Ross, 1994)
+
+** Response time vs throughput: choose one
+
+
+
+** Input/output: blocks tasks
+
+- I/O blocking (delegation, processing time)
+- response time vs turnaround time (throughput)
+
+* Modern schedulers: Multi-level feedback queue
+- optimizes turnaround time
+- multiple queues, take advantage of past knowledge
+  
+* Modern schedulers: Fair-share
+- optimizes fair CPU usage
+- CFS part of linux
+
+* Multitasking: a human perspective
+- multiprocessing can happen, but it has to be split across domains
+  + for instance, doing a visuomotor task but listening to audio is pretty common
+  + similarly, having a conversation is possible while watching things
+  + sensorimotor task (e.g. sewing) and watching a show
+  + walking and chewing gum
+- supertaskers
+
+- delegating tasks within a team
+  + multiple queues?
+
+
+* Summary of lessons learned
+
