@@ -127,6 +127,15 @@ pre.src {
     padding: 8pt;
 }
 
+#logo:hover {
+  border-bottom: 0;
+  opacity: 0.8;
+  }
+
+.logoimg {
+  height: 1.2em;
+}
+
 a {
   color: #527d9a;
   text-decoration: none

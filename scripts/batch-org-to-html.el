@@ -4,12 +4,42 @@
 
 (setq dir (file-name-directory (or load-file-name (buffer-file-name))))
 (add-to-list 'load-path dir)
-(add-to-list 'load-path "~/builds/org-mode/lisp")
+;; (add-to-list 'load-path "~/builds/org-mode/lisp")
 (require 'ox-html)
+
+(defun parent-directory (dir)
+  (unless (equal "/" dir)
+    (file-name-directory (directory-file-name dir))))
+
+(defun concat-path (a b)
+  (concat (file-name-as-directory a) b)
+  )
+
+(setq templates-dir (concat-path (parent-directory dir) "templates"))
+
+
+(defun my-org-html-toc-no-heading (args)
+  "Avoid toc heading in html export if the keyword TOC_HO_HEADING is t or yes.
+Works as a :filter-args advice for `org-html-toc' with argument list ARGS."
+  (let* ((depth (nth 0 args))
+     (info (nth 1 args))
+     (scope (nth 2 args)))
+    (when (null scope)
+      (setq scope (plist-get info :parse-tree)))
+    (list depth info scope)))
+
+(advice-add 'org-html-toc :filter-args #'my-org-html-toc-no-heading)
+
+(defun get-string-from-file (filePath)
+  "Return filePath's file content."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (buffer-string)))
 
 (setq org-html-htmlize-output-type 'css)
 (setq org-html-htmlize-font-prefix "org-")
 (setq org-html-postamble nil)
+(setq org-html-preamble (get-string-from-file (concat-path templates-dir "header.html")))
 
 (setq org-export-with-smart-quotes t
       org-html-validation-link nil
@@ -62,6 +92,7 @@ window.MathJax = {
 </script>
 <script src=\"%PATH\" id=\"MathJax-script\"></script>"
       )
+
 (defun batch-org-to-html--load-file (org-file)
   (setq make-backup-files nil)   ;; no need to create backup~ on generated files
   (find-file org-file))

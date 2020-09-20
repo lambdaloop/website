@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2020-09-19 Sat 10:04 -->
+<!-- 2020-09-20 Sun 14:13 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Lessons in time management from operating systems</title>
@@ -242,26 +242,30 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
+<div class="status" id="preamble">
+<a href="/" id="logo" title="Home">
+<img class="logoimg" src="/images/logo.png"/>
+    lambdaloop
+</a>
+<hr/>
+</div>
 <div id="content">
 <h1 class="title">Lessons in time management from operating systems</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfd7a96e">1. Parallels between human and OS scheduling</a>
+<li><a href="#orgf741040">1. Parallels between human and OS scheduling</a>
 <ul>
-<li><a href="#org56475a1">1.1. Context switching: cognitive vs procedural</a></li>
-<li><a href="#orgbd8a1c6">1.2. Time to completion: often unknown</a></li>
-<li><a href="#orga3dc251">1.3. Response time vs throughput: choose one</a></li>
-<li><a href="#org525ebb1">1.4. Input/output: blocks tasks</a></li>
+<li><a href="#org2dda564">1.1. Context switching: cognitive vs procedural</a></li>
+<li><a href="#org3b28983">1.2. Time to completion: often unknown</a></li>
+<li><a href="#org029b590">1.3. Response time vs throughput: choose one</a></li>
+<li><a href="#org7163856">1.4. Input/output: blocks tasks</a></li>
 </ul>
 </li>
-<li><a href="#org589892e">2. Modern schedulers: Multi-level feedback queue</a></li>
-<li><a href="#org0ed5787">3. Modern schedulers: Fair-share</a></li>
-<li><a href="#orga2d6c22">4. Multitasking: a human perspective</a></li>
-<li><a href="#orgbf56423">5. Summary of lessons learned</a></li>
+<li><a href="#org7fc02c2">2. Modern schedulers: Multi-level feedback queue</a></li>
+<li><a href="#org5fbd13d">3. Modern schedulers: Fair-share</a></li>
+<li><a href="#org186a78b">4. Multitasking: a human perspective</a></li>
+<li><a href="#org6941c68">5. Summary of lessons learned</a></li>
 </ul>
-</div>
 </div>
 <p>
 When I first read <a href="https://www.goodreads.com/book/show/25666050-algorithms-to-live-by">Algorithms to Live By</a>, I was fascinated by the parallels between computer science and cognitive science. At the time, I made a couple of small changes, notably buying a stand for my clothes and making more heavy use of the “recently modified” heuristic when sorting things (or at least, feeling more comfortable with it as reasonably optimal). Three years later, the idea that stuck around is the parallel between scheduling tasks in operating systems and in life.
@@ -269,15 +273,15 @@ When I first read <a href="https://www.goodreads.com/book/show/25666050-algorith
 <p>
 The book covers scheduling tradeoffs at a pretty high level, focusing primarily on the <a href="https://en.wikipedia.org/wiki/Earliest_deadline_first_scheduling">earliest deadline first (EDF)</a> and <a href="https://en.wikipedia.org/wiki/Shortest_job_next">shortest job next (SJN)</a> algorithms, and has brief discussions on priority inversion and context switching. The book’s focus is understandable given the its audience and space constraints, but the recommendations for practical time management feel somewhat shallow (e.g. beware of context switching, check prerequisites for tasks). Here, I’d like to explore these parallels in more detail, and in the process understand what specific strategies may be learned from the decades of research in operating system scheduling, flavored by what we know about human constraints.
 </p>
-<div class="outline-2" id="outline-container-orgfd7a96e">
-<h2 id="orgfd7a96e"><span class="section-number-2">1</span> Parallels between human and OS scheduling</h2>
+<div class="outline-2" id="outline-container-orgf741040">
+<h2 id="orgf741040"><span class="section-number-2">1</span> Parallels between human and OS scheduling</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The more that I read about scheduling in operating systems, the more the parallels with human time management become clear. In fact, a lot of the discussion within OS scheduling is rather lucid, and sheds light in the tradeoffs of human time management.
 </p>
 </div>
-<div class="outline-3" id="outline-container-org56475a1">
-<h3 id="org56475a1"><span class="section-number-3">1.1</span> Context switching: cognitive vs procedural</h3>
+<div class="outline-3" id="outline-container-org2dda564">
+<h3 id="org2dda564"><span class="section-number-3">1.1</span> Context switching: cognitive vs procedural</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Looking at OS context switching, we see that there are actually two different costs to context switches, which I distinguish as “procedural” and “cognitive”. <sup><a class="footref" href="#fn.1" id="fnr.1">1</a></sup> When switching tasks in a CPU, the biggest task is just switching out the values of the registers. This would be a “procedural” cost. However, as a CPU executes, it builds up state in various caches, which must be refilled again when switching tasks. This cost, much harder to quantify, would be a “cognitive” cost.
@@ -287,19 +291,19 @@ For humans, a “procedural” cost of switching tasks involves the physical set
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgbd8a1c6">
-<h3 id="orgbd8a1c6"><span class="section-number-3">1.2</span> Time to completion: often unknown</h3>
+<div class="outline-3" id="outline-container-org3b28983">
+<h3 id="org3b28983"><span class="section-number-3">1.2</span> Time to completion: often unknown</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Something that I find really interesting in the OS literature, which is completely glossed over in <i>Algorithms to Live By</i>, is that most of modern scheduling algorithms don’t make any assumptions about the length of each task when scheduling them. People are notoriously bad at estimating tasks<sup><a class="footref" href="#fn.2" id="fnr.2">2</a></sup>, so having a system which can process multiple tasks of arbitrary lengths robustly seems rather interesting. In both of the modern schedulers described below, the scheduler is designed to handle a mix of long and short running tasks with minimal sacrifices on the run time of either.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orga3dc251">
-<h3 id="orga3dc251"><span class="section-number-3">1.3</span> Response time vs throughput: choose one</h3>
+<div class="outline-3" id="outline-container-org029b590">
+<h3 id="org029b590"><span class="section-number-3">1.3</span> Response time vs throughput: choose one</h3>
 </div>
-<div class="outline-3" id="outline-container-org525ebb1">
-<h3 id="org525ebb1"><span class="section-number-3">1.4</span> Input/output: blocks tasks</h3>
+<div class="outline-3" id="outline-container-org7163856">
+<h3 id="org7163856"><span class="section-number-3">1.4</span> Input/output: blocks tasks</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>I/O blocking (delegation, processing time)</li>
@@ -308,8 +312,8 @@ Something that I find really interesting in the OS literature, which is complete
 </div>
 </div>
 </div>
-<div class="outline-2" id="outline-container-org589892e">
-<h2 id="org589892e"><span class="section-number-2">2</span> Modern schedulers: Multi-level feedback queue</h2>
+<div class="outline-2" id="outline-container-org7fc02c2">
+<h2 id="org7fc02c2"><span class="section-number-2">2</span> Modern schedulers: Multi-level feedback queue</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>optimizes turnaround time</li>
@@ -317,8 +321,8 @@ Something that I find really interesting in the OS literature, which is complete
 </ul>
 </div>
 </div>
-<div class="outline-2" id="outline-container-org0ed5787">
-<h2 id="org0ed5787"><span class="section-number-2">3</span> Modern schedulers: Fair-share</h2>
+<div class="outline-2" id="outline-container-org5fbd13d">
+<h2 id="org5fbd13d"><span class="section-number-2">3</span> Modern schedulers: Fair-share</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>optimizes fair CPU usage</li>
@@ -326,8 +330,8 @@ Something that I find really interesting in the OS literature, which is complete
 </ul>
 </div>
 </div>
-<div class="outline-2" id="outline-container-orga2d6c22">
-<h2 id="orga2d6c22"><span class="section-number-2">4</span> Multitasking: a human perspective</h2>
+<div class="outline-2" id="outline-container-org186a78b">
+<h2 id="org186a78b"><span class="section-number-2">4</span> Multitasking: a human perspective</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>multiprocessing can happen, but it has to be split across domains
@@ -345,8 +349,8 @@ Something that I find really interesting in the OS literature, which is complete
 </ul>
 </div>
 </div>
-<div class="outline-2" id="outline-container-orgbf56423">
-<h2 id="orgbf56423"><span class="section-number-2">5</span> Summary of lessons learned</h2>
+<div class="outline-2" id="outline-container-org6941c68">
+<h2 id="org6941c68"><span class="section-number-2">5</span> Summary of lessons learned</h2>
 </div>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
