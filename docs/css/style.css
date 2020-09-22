@@ -77,8 +77,9 @@ dfn {
 }
 
 h1 {
-  font-size: 2em;
-  margin: .67em 0
+  font-size: 1.8em;
+  margin: .67em 0;
+  line-height: 1.15em;
 }
 
 mark {
@@ -159,12 +160,17 @@ img {
 }
 
 body {
-  width: 95%;
-  margin: 4% auto;
+  width: 88%;
+  max-width: 900px;
+  margin: 1% auto;
   font-size: 14px;
   line-height: 1.5em;
   font-family: sans-serif;
   color: #333
+}
+
+#content {
+  margin: 0 auto;
 }
 
 
@@ -175,7 +181,7 @@ body {
 }
 
 @media screen and (min-width:740px) {
-  body {
+  #content {
     width: 730px
   }
 }
