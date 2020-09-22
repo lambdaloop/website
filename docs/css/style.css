@@ -133,7 +133,8 @@ pre.src {
   }
 
 .logoimg {
-  height: 1.2em;
+  height: 0.7em;
+  padding-bottom: 2px;
 }
 
 a {
