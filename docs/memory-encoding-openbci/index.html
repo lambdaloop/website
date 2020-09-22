@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2020-09-20 Sun 14:13 -->
+<!-- 2020-09-22 Tue 11:44 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Predicting memory encoding using an OpenBCI</title>
@@ -244,7 +244,7 @@ for the JavaScript code in this tag.
 <body>
 <div class="status" id="preamble">
 <a href="/" id="logo" title="Home">
-<img class="logoimg" src="/images/logo.png"/>
+<img class="logoimg" src="/images/logo_sm.png"/>
     lambdaloop
 </a>
 <hr/>
@@ -253,16 +253,16 @@ for the JavaScript code in this tag.
 <h1 class="title">Predicting memory encoding using an OpenBCI</h1>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb63a615">1. Experiment</a>
+<li><a href="#org5b59f40">1. Experiment</a>
 <ul>
-<li><a href="#org897613c">1.1. Start by attaching the OpenBCI electrodes to the participant’s head</a></li>
-<li><a href="#org184e0c7">1.2. Check connections using the OpenBCI processing sketch</a></li>
-<li><a href="#orgaaaeb70">1.3. Record positions of EEG according to 10-20 system</a></li>
-<li><a href="#orge514923">1.4. Present list of words and record</a></li>
-<li><a href="#orgf0a3ec1">1.5. Test recall</a></li>
+<li><a href="#orgfb352da">1.1. Start by attaching the OpenBCI electrodes to the participant’s head</a></li>
+<li><a href="#org64f2500">1.2. Check connections using the OpenBCI processing sketch</a></li>
+<li><a href="#orgc675aaa">1.3. Record positions of EEG according to 10-20 system</a></li>
+<li><a href="#orgccc2bf3">1.4. Present list of words and record</a></li>
+<li><a href="#org486e7e6">1.5. Test recall</a></li>
 </ul>
 </li>
-<li><a href="#org92725da">2. Analysis</a></li>
+<li><a href="#org62040bd">2. Analysis</a></li>
 </ul>
 </div>
 <div class="figure">
@@ -306,12 +306,12 @@ Before we begin, all our code is open-source and you can find it here:
 <p>
 Though the README file for the code is decent, I’ll describe the experiment in even more detail below.
 </p>
-<div class="outline-2" id="outline-container-orgb63a615">
-<h2 id="orgb63a615"><span class="section-number-2">1</span> Experiment</h2>
+<div class="outline-2" id="outline-container-org5b59f40">
+<h2 id="org5b59f40"><span class="section-number-2">1</span> Experiment</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div class="outline-3" id="outline-container-org897613c">
-<h3 id="org897613c"><span class="section-number-3">1.1</span> Start by attaching the OpenBCI electrodes to the participant’s head</h3>
+<div class="outline-3" id="outline-container-orgfb352da">
+<h3 id="orgfb352da"><span class="section-number-3">1.1</span> Start by attaching the OpenBCI electrodes to the participant’s head</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 <img alt="sm_setup_1.jpg" src="/images/eeg-memory/sm_setup_1.jpg"/>
@@ -336,8 +336,8 @@ out on potentially useful results.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org184e0c7">
-<h3 id="org184e0c7"><span class="section-number-3">1.2</span> Check connections using the OpenBCI processing sketch</h3>
+<div class="outline-3" id="outline-container-org64f2500">
+<h3 id="org64f2500"><span class="section-number-3">1.2</span> Check connections using the OpenBCI processing sketch</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="figure">
 <p><img alt="alpha.png" src="/images/eeg-memory/alpha.png" style="max-height: 350px"/>
@@ -357,8 +357,8 @@ the reference electrodes!), so we secure them properly.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgaaaeb70">
-<h3 id="orgaaaeb70"><span class="section-number-3">1.3</span> Record positions of EEG according to 10-20 system</h3>
+<div class="outline-3" id="outline-container-orgc675aaa">
+<h3 id="orgc675aaa"><span class="section-number-3">1.3</span> Record positions of EEG according to 10-20 system</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="figure">
 <p><img alt="sm_10_20.png" src="/images/eeg-memory/sm_10_20.png"/>
@@ -375,8 +375,8 @@ then run multiple experiments with the same positions.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orge514923">
-<h3 id="orge514923"><span class="section-number-3">1.4</span> Present list of words and record</h3>
+<div class="outline-3" id="outline-container-orgccc2bf3">
+<h3 id="orgccc2bf3"><span class="section-number-3">1.4</span> Present list of words and record</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="figure">
 <p><img alt="sm_experiment.jpg" src="/images/eeg-memory/sm_experiment.jpg"/>
@@ -407,8 +407,8 @@ test.  To keep the experiment controlled, it’s better to have each subject wai
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgf0a3ec1">
-<h3 id="orgf0a3ec1"><span class="section-number-3">1.5</span> Test recall</h3>
+<div class="outline-3" id="outline-container-org486e7e6">
+<h3 id="org486e7e6"><span class="section-number-3">1.5</span> Test recall</h3>
 <div class="outline-text-3" id="text-1-5">
 <div class="figure">
 <p><img alt="sm_recognize.png" src="/images/eeg-memory/sm_recognize.png"/>
@@ -432,8 +432,8 @@ depending on whether the word was marked as recognized or not by the subject.
 </div>
 </div>
 </div>
-<div class="outline-2" id="outline-container-org92725da">
-<h2 id="org92725da"><span class="section-number-2">2</span> Analysis</h2>
+<div class="outline-2" id="outline-container-org62040bd">
+<h2 id="org62040bd"><span class="section-number-2">2</span> Analysis</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 You can finally move on to the really interesting part: the analysis!
