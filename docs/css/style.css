@@ -162,7 +162,7 @@ body {
   width: 95%;
   margin: 4% auto;
   font-size: 14px;
-  line-height: 1.4em;
+  line-height: 1.5em;
   font-family: sans-serif;
   color: #333
 }
@@ -174,9 +174,9 @@ body {
   }
 }
 
-@media screen and (min-width:650px) {
+@media screen and (min-width:740px) {
   body {
-    width: 640px
+    width: 730px
   }
 }
 
@@ -189,13 +189,13 @@ body {
 }
 
 p {
-  /* margin: 1em auto; */
-  margin: 0;
+  margin: 1em auto;
+  /* margin: 0; */
 }
 
 #content p {
   text-align: justify;
-  text-indent:2.5em;
+  /* text-indent:2.5em; */
   overflow-wrap: break-word;
   hyphens: auto;
 }
