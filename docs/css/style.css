@@ -160,10 +160,10 @@ img {
 
 body {
   width: 95%;
-  margin: 2% auto;
+  margin: 4% auto;
   font-size: 14px;
   line-height: 1.4em;
-  font-family: Georgia, serif;
+  font-family: sans-serif;
   color: #333
 }
 
@@ -174,9 +174,9 @@ body {
   }
 }
 
-@media screen and (min-width:910px) {
+@media screen and (min-width:650px) {
   body {
-    width: 900px
+    width: 640px
   }
 }
 
@@ -189,7 +189,19 @@ body {
 }
 
 p {
-  margin: 1em auto
+  /* margin: 1em auto; */
+  margin: 0;
+}
+
+#content p {
+  text-align: justify;
+  text-indent:2.5em;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+p {
+
 }
 
 blockquote {
