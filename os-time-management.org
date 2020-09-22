@@ -22,9 +22,11 @@ Something that I find really interesting in the OS literature, which is complete
 
 [fn:students-paper] For instance, the majority of students underestimated how long it would take to finish a paper by about 50% when optimistic, and even by 12% when asked to make a pessimistic estimate.  (Buehler, Griffin, Ross, 1994)
 
-** Response time vs throughput: choose one
+** Turnaround time vs response time: choose one
 
-
+# add picture from the scheduling book here to demonstrate difference between SJF and Round Robit (Figures 7.6 and 7.7)
+A natural metric to optimize for completing tasks is the "turnaround time", defined as the time from task arrival to task completion. However, engineers of interactive systems quickly realized that considering only turnaround time leads to laggy and unresponsive interfaces. This is because, optimizing for turnaround time, the system would just run one task at time, for a long time. Thus, from the perspective of the user, their task would usually freeze up
+until all the other shorter tasks completed. The solution is to measure and optimize the response time, the time from the task arrival to the first task run. I find this interesting, as in our modern social networks we are often incentivized to minimize response time, rather than turnaround time, which naturally leads to us performing tasks in [[https://en.wikipedia.org/wiki/Round-robin_scheduling][round-robin]] style.  Rather than holding turnaround time as the best metric and completely discounting round-robin scheduling, as so many "productivity gurus" often do, it can be helpful to think about the balance between response time and turnaround time, and what you might be trading off when picking one to optimize.
 
 ** Input/output: blocks tasks
 
