@@ -29,9 +29,7 @@ A natural metric to optimize for completing tasks is the "turnaround time", defi
 until all the other shorter tasks completed. The solution is to measure and optimize the response time, the time from the task arrival to the first task run. I find this interesting, as in our modern social networks we are often incentivized to minimize response time, rather than turnaround time, which naturally leads to us performing tasks in [[https://en.wikipedia.org/wiki/Round-robin_scheduling][round-robin]] style.  Rather than holding turnaround time as the best metric and completely discounting round-robin scheduling, as so many "productivity gurus" often do, it can be helpful to think about the balance between response time and turnaround time, and what you might be trading off when picking one to optimize.
 
 ** Input/output: blocks tasks
-
-- I/O blocking (delegation, processing time)
-- response time vs turnaround time (throughput)
+Another consideration when scheduling tasks is the waiting time for input/output. For instance, when the CPU is reading from or writing to a hard drive, it must wait for the hard drive to respond before continuing to execute the task, as hard drives are orders of magnitude slower than CPUs. But it could be executing other tasks during this time! A similar principle applies for human tasks. When running the laundry, for instance, it's more efficient to not wait for the washer to finish before starting another task. Similarly, when waiting for a reply to a message or waiting for water to boil, it's more efficient be doing something else. Still, how can you schedule tasks most efficiently while keeping this in mind? The modern algorithms below handle these issues naturally.
 
 * Modern schedulers: Multi-level feedback queue
 - optimizes turnaround time
