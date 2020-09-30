@@ -49,6 +49,8 @@ Works as a :filter-args advice for `org-html-toc' with argument list ARGS."
       <link href=\"/css/code-theme.css\" rel=\"stylesheet\">
       <link href=\"/css/style.css\" rel=\"stylesheet\">
       <script src=\"/js/footnotes.js\"></script>
+      <link rel=\"stylesheet\"
+          href=\"https://fonts.googleapis.com/css?family=Source Sans\">
 "
       )
 
