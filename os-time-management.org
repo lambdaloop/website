@@ -1,5 +1,7 @@
 #+TITLE: Lessons in time management from operating systems
 
+# should rephrase this to have less first person, more approachable writing
+
 When I first read [[https://www.goodreads.com/book/show/25666050-algorithms-to-live-by][Algorithms to Live By]], I was fascinated by the parallels between computer science and cognitive science. At the time, I made a couple of small changes, notably buying a stand for my clothes and making more heavy use of the "recently modified" heuristic when sorting things (or at least, feeling more comfortable with it as reasonably optimal). Three years later, the idea that stuck around is the parallel between scheduling tasks in operating systems and in life.
 
 The book covers scheduling tradeoffs at a pretty high level, focusing primarily on the [[https://en.wikipedia.org/wiki/Earliest_deadline_first_scheduling][earliest deadline first (EDF)]] and [[https://en.wikipedia.org/wiki/Shortest_job_next][shortest job next (SJN)]] algorithms, and has brief discussions on priority inversion and context switching. The book's focus is understandable given the its audience and space constraints, but the recommendations for practical time management feel somewhat shallow (e.g. beware of context switching, check prerequisites for tasks).
@@ -14,6 +16,7 @@ The more that I read about scheduling in operating systems, the more the paralle
 # - context switching / time slices / interrupts
 ** Context switching: cognitive vs procedural
 # Christian and Griffiths make a big deal out of this in /Algorithms to Live By/, and how bad humans are at context switching, something that is covered again and again in the literature.
+
 Looking at OS context switching, we see that there are actually two different costs to context switches, which I distinguish as "procedural" and "cognitive". [fn::In the OS literature, "procedural" and "cognitive" costs are generally referred to as "direct" and "indirect" costs.] When switching tasks in a CPU, the biggest task is just switching out the values of the registers. This would be a "procedural" cost. However, as a CPU executes, it builds up state in various caches, which must be refilled again when switching tasks. This cost, much harder to quantify, would be a "cognitive" cost.
 
 For humans, a "procedural" cost of switching tasks involves the physical setup of a task (opening a document on the computer, setting a brushes for painting, etc), whereas the "cognitive" cost is due to switching out the working memory maintained while working on a task (e.g. what sentence to write next, in which region to paint). The human task-switching literature has focused primarily on quantifying the cognitive cost of task switching. However, this cost may in fact be irrelevant if the procedural cost is high enough. Interestingly, for operating systems, it may also be negligible for simple tasks where both tasks fit in cache. It's possible that there are tasks simple enough that they incur almost no cognitive cost for humans as well.
@@ -33,16 +36,20 @@ until all the other shorter tasks completed.
 The solution is to measure and optimize the response time, the time from the task arrival to the first task run. I find this interesting, as in our modern social networks we are often incentivized to minimize response time, rather than turnaround time, which naturally leads to us performing tasks in [[https://en.wikipedia.org/wiki/Round-robin_scheduling][round-robin]] style.  Rather than holding turnaround time as the best metric and completely discounting round-robin scheduling, as so many "productivity gurus" often do, it can be helpful to think about the balance between response time and turnaround time, and what you might be trading off when picking one to optimize.
 
 ** Input/output: blocks tasks
+# visualization of this
+
 Another consideration when scheduling tasks is the waiting time for input/output. For instance, when the CPU is reading from or writing to a hard drive, it must wait for the hard drive to respond before continuing to execute the task, as hard drives are orders of magnitude slower than CPUs. But it could be executing other tasks during this time!
 
-A similar principle applies for human tasks. When running the laundry, for instance, it's more efficient to not wait for the washer to finish before starting another task. Similarly, when waiting for a reply to a message or waiting for water to boil, it's more efficient be doing something else. Still, how can you schedule tasks most efficiently while keeping this in mind? The modern algorithms below handle these issues naturally.
+A similar principle applies for human tasks. When running the laundry, for instance, it's more efficient to not wait for the washer to finish before starting another task. Similarly, when waiting for a reply to a message or waiting for water to boil, it's more efficient be doing something else. You can think of delegating tasks to people or machines in this way as well. Still, how can you schedule tasks most efficiently while keeping this in mind? The modern algorithms below handle these issues naturally.
 
-* Modern schedulers: Multi-level feedback queue
+* Modern schedulers
+** Multi-level feedback queue
 - optimizes turnaround time
 - multiple queues, take advantage of past knowledge
   
-* Modern schedulers: Fair-share
+** Fair-share scheduler
 - optimizes fair CPU usage
+- prioritizes response time (?)
 - CFS part of linux
 
 * Multitasking: a human perspective

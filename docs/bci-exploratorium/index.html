@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2020-09-22 Tue 11:44 -->
+<!-- 2020-09-30 Wed 11:22 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Mind controlled robotic arm at The Exploratorium</title>
@@ -194,6 +194,7 @@
 <link href="/css/code-theme.css" rel="stylesheet"/>
 <link href="/css/style.css" rel="stylesheet"/>
 <script src="/js/footnotes.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Source Sans" rel="stylesheet"/>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -253,29 +254,29 @@ for the JavaScript code in this tag.
 <h1 class="title">Mind controlled robotic arm at The Exploratorium</h1>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf9abcb6">1. The exhibit</a></li>
-<li><a href="#org32b4b82">2. Behind the scenes</a>
+<li><a href="#orgead4179">1. The exhibit</a></li>
+<li><a href="#org743f23d">2. Behind the scenes</a>
 <ul>
-<li><a href="#org1ca40d5">2.1. Overview of the system</a></li>
-<li><a href="#org190ff75">2.2. Headset</a></li>
-<li><a href="#orgb6df16c">2.3. Streaming the data</a></li>
-<li><a href="#orgba7cbd3">2.4. Analysis</a>
+<li><a href="#org63bd1cd">2.1. Overview of the system</a></li>
+<li><a href="#orgb6b5e38">2.2. Headset</a></li>
+<li><a href="#org8fb134d">2.3. Streaming the data</a></li>
+<li><a href="#orge5deda3">2.4. Analysis</a>
 <ul>
-<li><a href="#org93d8404">2.4.1. Raw EEG</a></li>
-<li><a href="#org367a562">2.4.2. Identify and remove artifacts</a></li>
-<li><a href="#org827ebe2">2.4.3. Extract features</a></li>
-<li><a href="#org00dc651">2.4.4. Classify</a></li>
-<li><a href="#orgc530ea8">2.4.5. Smooth out results</a></li>
+<li><a href="#org02dde7e">2.4.1. Raw EEG</a></li>
+<li><a href="#org47a6e2c">2.4.2. Identify and remove artifacts</a></li>
+<li><a href="#org355c528">2.4.3. Extract features</a></li>
+<li><a href="#org352af9d">2.4.4. Classify</a></li>
+<li><a href="#orgfc79de8">2.4.5. Smooth out results</a></li>
 </ul>
 </li>
-<li><a href="#orgdf963c7">2.5. Display</a></li>
-<li><a href="#orgd39b01b">2.6. That’s it!</a></li>
+<li><a href="#orge6a1707">2.5. Display</a></li>
+<li><a href="#org54f8bd0">2.6. That’s it!</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="outline-2" id="outline-container-orgf9abcb6">
-<h2 id="orgf9abcb6"><span class="section-number-2">1</span> The exhibit</h2>
+<div class="outline-2" id="outline-container-orgead4179">
+<h2 id="orgead4179"><span class="section-number-2">1</span> The exhibit</h2>
 <div class="outline-text-2" id="text-1">
 <div class="figure">
 <p><img alt="exhibit_1.jpg" src="/images/exploratorium/exhibit_1.jpg"/>
@@ -345,12 +346,12 @@ mind to do this training.
 </p>
 </div>
 </div>
-<div class="outline-2" id="outline-container-org32b4b82">
-<h2 id="org32b4b82"><span class="section-number-2">2</span> Behind the scenes</h2>
+<div class="outline-2" id="outline-container-org743f23d">
+<h2 id="org743f23d"><span class="section-number-2">2</span> Behind the scenes</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div class="outline-3" id="outline-container-org1ca40d5">
-<h3 id="org1ca40d5"><span class="section-number-3">2.1</span> Overview of the system</h3>
+<div class="outline-3" id="outline-container-org63bd1cd">
+<h3 id="org63bd1cd"><span class="section-number-3">2.1</span> Overview of the system</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 This exhibit is composed of three main components
@@ -370,8 +371,8 @@ All the code is available here:
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org190ff75">
-<h3 id="org190ff75"><span class="section-number-3">2.2</span> Headset</h3>
+<div class="outline-3" id="outline-container-orgb6b5e38">
+<h3 id="orgb6b5e38"><span class="section-number-3">2.2</span> Headset</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 <img alt="sm_headset_1.png" src="/images/exploratorium/sm_headset_1.png"/>
@@ -399,8 +400,8 @@ repeatedly between visitors (although most did not care too much).
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgb6df16c">
-<h3 id="orgb6df16c"><span class="section-number-3">2.3</span> Streaming the data</h3>
+<div class="outline-3" id="outline-container-org8fb134d">
+<h3 id="org8fb134d"><span class="section-number-3">2.3</span> Streaming the data</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 <img alt="sm_board_1.png" src="/images/exploratorium/sm_board_1.png"/>
@@ -414,8 +415,8 @@ We sampled the data at 250Hz, the maximum we could achieve with the OpenBCI boar
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgba7cbd3">
-<h3 id="orgba7cbd3"><span class="section-number-3">2.4</span> Analysis</h3>
+<div class="outline-3" id="outline-container-orge5deda3">
+<h3 id="orge5deda3"><span class="section-number-3">2.4</span> Analysis</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 The classifier code is <a href="https://github.com/tomasero/mind-kinetics/tree/master/classifier">here</a>. Honestly, it’s really nasty though. I leave it as a reference, but I
@@ -434,16 +435,16 @@ The pipeline is as follows:
 <li>Smooth out results</li>
 </ol>
 </div>
-<div class="outline-4" id="outline-container-org93d8404">
-<h4 id="org93d8404"><span class="section-number-4">2.4.1</span> Raw EEG</h4>
+<div class="outline-4" id="outline-container-org02dde7e">
+<h4 id="org02dde7e"><span class="section-number-4">2.4.1</span> Raw EEG</h4>
 <div class="outline-text-4" id="text-2-4-1">
 <p>
 The raw EEG data is just collected from the OpenBCI using <a href="https://github.com/tomasero/mind-kinetics/blob/master/classifier/open_bci.py">open<sub>bci.py</sub></a>  (<a href="https://github.com/tomasero/mind-kinetics/blob/master/classifier/open_bci_v3.py">open<sub>bci</sub><sub>v3.py</sub></a> for V3).
 </p>
 </div>
 </div>
-<div class="outline-4" id="outline-container-org367a562">
-<h4 id="org367a562"><span class="section-number-4">2.4.2</span> Identify and remove artifacts</h4>
+<div class="outline-4" id="outline-container-org47a6e2c">
+<h4 id="org47a6e2c"><span class="section-number-4">2.4.2</span> Identify and remove artifacts</h4>
 <div class="outline-text-4" id="text-2-4-2">
 <p>
 For identifying and removing artifacts we used independent components analysis (ICA). ICA is great
@@ -469,8 +470,8 @@ Because the eye blink has some smooth (and pretty high) spikes, the distribution
 </div>
 </div>
 </div>
-<div class="outline-4" id="outline-container-org827ebe2">
-<h4 id="org827ebe2"><span class="section-number-4">2.4.3</span> Extract features</h4>
+<div class="outline-4" id="outline-container-org355c528">
+<h4 id="org355c528"><span class="section-number-4">2.4.3</span> Extract features</h4>
 <div class="outline-text-4" id="text-2-4-3">
 <p>
 The features extracted are relatively simple.  We take a window of 256 samples (about 1 second) from
@@ -483,8 +484,8 @@ different frequencies at each point in time.
 </p>
 </div>
 </div>
-<div class="outline-4" id="outline-container-org00dc651">
-<h4 id="org00dc651"><span class="section-number-4">2.4.4</span> Classify</h4>
+<div class="outline-4" id="outline-container-org352af9d">
+<h4 id="org352af9d"><span class="section-number-4">2.4.4</span> Classify</h4>
 <div class="outline-text-4" id="text-2-4-4">
 <p>
 To classify, we used a K-nearest neighbors classifier, with n=1 neighbors. This is probably the
@@ -493,8 +494,8 @@ something similar. Still, it worked alright and was very fast to train and class
 </p>
 </div>
 </div>
-<div class="outline-4" id="outline-container-orgc530ea8">
-<h4 id="orgc530ea8"><span class="section-number-4">2.4.5</span> Smooth out results</h4>
+<div class="outline-4" id="outline-container-orgfc79de8">
+<h4 id="orgfc79de8"><span class="section-number-4">2.4.5</span> Smooth out results</h4>
 <div class="outline-text-4" id="text-2-4-5">
 <div class="figure">
 <p><img alt="sm_classify.png" src="/images/exploratorium/sm_classify.png"/>
@@ -511,8 +512,8 @@ estimate, we apply a low-pass filter on the classified value. This is the output
 </div>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgdf963c7">
-<h3 id="orgdf963c7"><span class="section-number-3">2.5</span> Display</h3>
+<div class="outline-3" id="outline-container-orge6a1707">
+<h3 id="orge6a1707"><span class="section-number-3">2.5</span> Display</h3>
 <div class="outline-text-3" id="text-2-5">
 <div class="figure">
 <p><img alt="sm_display.png" src="/images/exploratorium/sm_display.png"/>
@@ -536,8 +537,8 @@ The web interface code is much cleaner than the classifier code, and potentially
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgd39b01b">
-<h3 id="orgd39b01b"><span class="section-number-3">2.6</span> That’s it!</h3>
+<div class="outline-3" id="outline-container-org54f8bd0">
+<h3 id="org54f8bd0"><span class="section-number-3">2.6</span> That’s it!</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 We basically put together this thing in one month of work, with another month’s worth of maintenance. If this sounds crazy, that’s because it is.  There were countless times when I thought we would not make it, only to see the project survive miraculously over the next day.
