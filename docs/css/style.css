@@ -77,8 +77,9 @@ dfn {
 }
 
 h1 {
-  font-size: 1.8em;
-  margin: .67em 0;
+  font-size: 1.65em;
+  margin: 0;
+  /* margin: .67em 0; */
   line-height: 1.15em;
 }
 
@@ -164,8 +165,8 @@ body {
   max-width: 900px;
   margin: 1% auto;
   font-size: 12px;
-  line-height: 1.35em;
-  font-family: sans-serif;
+  line-height: 1.42em;
+  font-family: "Source Sans", sans-serif;
   color: #333
 }
 
@@ -175,6 +176,7 @@ body {
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+  width: 95%;
 }
 
 
@@ -184,9 +186,9 @@ body {
   }
 }
 
-@media screen and (min-width:670px) {
+@media screen and (min-width:820px) {
   #content {
-    width: 650px
+    width: 720px
   }
 }
 
