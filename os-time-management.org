@@ -57,6 +57,7 @@ Essentially, it schedules tasks according to the [[http://pages.cs.wisc.edu/~rem
 
 [fn:os-book] Lifted from /Operating Systems: Three Easy Pieces/ by Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau.
 
+
 This system gives a higher priority to incoming jobs. They'll run first, maximizing response time. If they're short, they'll also finish quickly. However, if they turn out to be longer, they'll get moved into a lower queue, which will only run after every other job. In order to continue running the longer jobs if there are too many interactive jobs, all the priorities are reset periodically.
 In some variants, the lower priority queues have longer time slices, as the non-interactive jobs are often CPU bound and this reduces [[*Context switching: cognitive vs procedural][context switching costs]].
 
@@ -67,6 +68,7 @@ Pros:
 Cons:
 - no way to specify which jobs have higher priority permanently
 - priority reset (rule 5) feels like it would be tricky to implement for human scheduling
+- need a system to manage task priorities
 
 
 ** Fair-share scheduler
