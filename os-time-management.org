@@ -44,9 +44,31 @@ A similar principle applies for human tasks. When running the laundry, for insta
 
 * Modern schedulers
 ** Multi-level feedback queue
-- optimizes turnaround time
-- multiple queues, take advantage of past knowledge
-  
+# image portraying multi-level feedback queue
+
+The multi-level feedback queue strikes a balance between turnaround time (how long it takes you to complete a task) and response time (how long before you start on the task), while making few assumptions about the run time of the tasks. How does it do this?
+
+Essentially, it schedules tasks according to the [[http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf][following rules]][fn:os-book]:
+1) If Priority(A) > Priority(B), A runs and B doesn’t.
+2) If Priority(A) = Priority(B), A & B run in round-robin fashion using the time slice (quantum length) of the given queue.
+3) When a job enters the system, it is placed at the highest priority (the topmost queue).
+4) Once a job uses up its time allotment at a given level, its priority is reduced (i.e., it moves down one queue).
+5) After some time period S, move all the jobs in the system to the topmost queue
+
+[fn:os-book] Lifted from /Operating Systems: Three Easy Pieces/ by Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau.
+
+This system gives a higher priority to incoming jobs. They'll run first, maximizing response time. If they're short, they'll also finish quickly. However, if they turn out to be longer, they'll get moved into a lower queue, which will only run after every other job. In order to continue running the longer jobs if there are too many interactive jobs, all the priorities are reset periodically.
+In some variants, the lower priority queues have longer time slices, as the non-interactive jobs are often CPU bound and this reduces [[*Context switching: cognitive vs procedural][context switching costs]].
+
+Pros:
+- automatic adjustment based on observed runtime, without task runtime estimates
+- good tradeoff between response time and turnaround time
+
+Cons:
+- no way to specify which jobs have higher priority permanently
+- priority reset (rule 5) feels like it would be tricky to implement for human scheduling
+
+
 ** Fair-share scheduler
 - optimizes fair CPU usage
 - prioritizes response time (?)
