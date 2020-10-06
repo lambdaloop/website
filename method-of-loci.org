@@ -1,4 +1,14 @@
-#+TITLE: Method of Loci
+#+TITLE: How to use the method of loci
 
-References
-https://artofmemory.com/wiki/Method_of_Loci
+Websites covering the method of loci are strangely lacking. Below are a couple of resources related to the method's usage, in one place.
+
+* How to start using method of loci
+
+* Where to get the loci
+
+* How to remember different things
+** stories
+** numbers
+** technical material
+
+* More resources

@@ -2,11 +2,16 @@
 
 # should rephrase this to have less first person, more approachable writing
 
-When I first read [[https://www.goodreads.com/book/show/25666050-algorithms-to-live-by][Algorithms to Live By]], I was fascinated by the parallels between computer science and cognitive science. At the time, I made a couple of small changes, notably buying a stand for my clothes and making more heavy use of the "recently modified" heuristic when sorting things (or at least, feeling more comfortable with it as reasonably optimal). Three years later, the idea that stuck around is the parallel between scheduling tasks in operating systems and in life.
+If you're like me, you have a long todo list and a nagging sense that perhaps, you may not be doing your tasks in the /right/ order. But how can you measure whether an order is better or worse, and how can you find the best one?
 
-The book covers scheduling tradeoffs at a pretty high level, focusing primarily on the [[https://en.wikipedia.org/wiki/Earliest_deadline_first_scheduling][earliest deadline first (EDF)]] and [[https://en.wikipedia.org/wiki/Shortest_job_next][shortest job next (SJN)]] algorithms, and has brief discussions on priority inversion and context switching. The book's focus is understandable given the its audience and space constraints, but the recommendations for practical time management feel somewhat shallow (e.g. beware of context switching, check prerequisites for tasks).
+I first got answers to these questions when reading [[https://www.goodreads.com/book/show/25666050-algorithms-to-live-by][Algorithms to Live By]], in the chapter on the parallels between scheduling tasks in operating systems and in life [fn:changes].
+When reading about scheduling in actual operating systems, I found that the scheduling algorithms actually used account for more cases and are closer[fn:book] to the real constraints of human task scheduling. They're described in more detail here, along with the parallels I saw.
 
-Here, I'd like to explore these parallels in more detail, and in the process understand what specific strategies may be learned from the decades of research in operating system scheduling, flavored by what we know about human constraints.
+
+[fn:changes] Based on the book, I also made a couple of small changes to my life, notably buying a stand for my clothes and making more heavy use of the "recently modified" heuristic when sorting things (or at least, feeling more comfortable with it as reasonably optimal). Still, the scheduling parallel is what interested me the most in the end.
+
+
+[fn:book] The book covers scheduling tradeoffs at a pretty high level, focusing primarily on the [[https://en.wikipedia.org/wiki/Earliest_deadline_first_scheduling][earliest deadline first (EDF)]] and [[https://en.wikipedia.org/wiki/Shortest_job_next][shortest job next (SJN)]] algorithms, and has brief discussions on priority inversion and context switching. The book's focus is understandable given the its audience and space constraints, but the recommendations for practical time management feel somewhat shallow (e.g. beware of context switching, check prerequisites for tasks).
 
 
 * Parallels between human and OS scheduling
