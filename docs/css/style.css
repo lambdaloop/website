@@ -24,6 +24,15 @@ summary {
   display: block
 }
 
+.section-number-2 {
+  display: none;
+}
+
+.section-number-3 {
+  display: none;
+}
+
+
 audio,
 canvas,
 progress,
@@ -81,6 +90,11 @@ h1 {
   margin: 0;
   /* margin: .67em 0; */
   line-height: 1.15em;
+}
+
+h2, h3 {
+  margin-top: 1em;
+  margin-bottom: 0.3em;
 }
 
 mark {
@@ -201,7 +215,11 @@ body {
 }
 
 p {
-  margin: 1em auto;
+  margin-top: 0;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: 1em auto; */
   /* margin: 0; */
 }
 
