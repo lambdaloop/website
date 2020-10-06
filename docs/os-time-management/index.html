@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2020-10-06 Tue 08:48 -->
+<!-- 2020-10-06 Tue 11:39 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Lessons in time management from operating systems</title>
+<title>How to prioritize todo lists effectively like computers</title>
 <meta content="Org mode" name="generator"/>
 <meta content="lambdaloop" name="author"/>
 <style type="text/css">
@@ -251,43 +251,42 @@ for the JavaScript code in this tag.
 <hr/>
 </div>
 <div id="content">
-<h1 class="title">Lessons in time management from operating systems</h1>
+<h1 class="title">How to prioritize todo lists effectively like computers</h1>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7ed8e2c">1. Parallels between human and OS scheduling</a>
+<li><a href="#org17ad0c4">1. Parallels between human and OS scheduling</a>
 <ul>
-<li><a href="#orgef1c5b8">1.1. Context switching: cognitive vs procedural</a></li>
-<li><a href="#org63fc7db">1.2. Time to completion: often unknown</a></li>
-<li><a href="#orgbb24be2">1.3. Turnaround time vs response time: choose one</a></li>
-<li><a href="#org862038e">1.4. Input/output: blocks tasks</a></li>
+<li><a href="#orgb254986">1.1. Context switching: cognitive vs procedural</a></li>
+<li><a href="#orgc1c7173">1.2. Time to completion: often unknown</a></li>
+<li><a href="#org0dc82af">1.3. Turnaround time vs response time: choose one</a></li>
+<li><a href="#orga550fa7">1.4. Input/output: blocks tasks</a></li>
 </ul>
 </li>
-<li><a href="#org735252a">2. Modern schedulers</a>
+<li><a href="#org6c9d6c8">2. Modern operating system schedulers</a>
 <ul>
-<li><a href="#orgc2cac2e">2.1. Multi-level feedback queue</a></li>
-<li><a href="#org572ca83">2.2. Fair-share scheduler</a></li>
+<li><a href="#org9e6f815">2.1. Multi-level feedback queue</a></li>
+<li><a href="#org8cf8db3">2.2. Fair-share scheduler</a></li>
 </ul>
 </li>
-<li><a href="#org11b4ce7">3. Multitasking: a human perspective</a></li>
-<li><a href="#org0b135d2">4. Summary of lessons learned</a></li>
+<li><a href="#orgb0319a2">3. Scheduling for humans</a></li>
 </ul>
 </div>
 <p>
-If you’re like me, you have a long todo list and a nagging sense that perhaps, you may not be your tasks in the <i>right</i> order. But how can you measure whether an order is better or worse, and how can you find the best one?
+If you’re like me, you have a long todo list and a nagging sense that perhaps, you may not be doing your tasks in the <i>right</i> order. But how can you measure whether an order is better or worse, and how can you find the best one?
 </p>
 <p>
 I first got answers to these questions when reading <a href="https://www.goodreads.com/book/show/25666050-algorithms-to-live-by">Algorithms to Live By</a>, in the chapter on the parallels between scheduling tasks in operating systems and in life <sup><a class="footref" href="#fn.1" id="fnr.1">1</a></sup>.
 When reading about scheduling in actual operating systems, I found that the scheduling algorithms actually used account for more cases and are closer<sup><a class="footref" href="#fn.2" id="fnr.2">2</a></sup> to the real constraints of human task scheduling. They’re described in more detail here, along with the parallels I saw.
 </p>
-<div class="outline-2" id="outline-container-org7ed8e2c">
-<h2 id="org7ed8e2c"><span class="section-number-2">1</span> Parallels between human and OS scheduling</h2>
+<div class="outline-2" id="outline-container-org17ad0c4">
+<h2 id="org17ad0c4"><span class="section-number-2">1</span> Parallels between human and OS scheduling</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The more that I read about scheduling in operating systems, the more the parallels with human time management become clear. In fact, a lot of the discussion within OS scheduling is rather lucid, and sheds light in the tradeoffs of human time management.
 </p>
 </div>
-<div class="outline-3" id="outline-container-orgef1c5b8">
-<h3 id="orgef1c5b8"><span class="section-number-3">1.1</span> Context switching: cognitive vs procedural</h3>
+<div class="outline-3" id="outline-container-orgb254986">
+<h3 id="orgb254986"><span class="section-number-3">1.1</span> Context switching: cognitive vs procedural</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Looking at OS context switching, we see that there are actually two different costs to context switches, which I distinguish as “procedural” and “cognitive”. <sup><a class="footref" href="#fn.3" id="fnr.3">3</a></sup> When switching tasks in a CPU, the biggest task is just switching out the values of the registers. This would be a “procedural” cost. However, as a CPU executes, it builds up state in various caches, which must be refilled again when switching tasks. This cost, much harder to quantify, would be a “cognitive” cost.
@@ -297,16 +296,16 @@ For humans, a “procedural” cost of switching tasks involves the physical set
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org63fc7db">
-<h3 id="org63fc7db"><span class="section-number-3">1.2</span> Time to completion: often unknown</h3>
+<div class="outline-3" id="outline-container-orgc1c7173">
+<h3 id="orgc1c7173"><span class="section-number-3">1.2</span> Time to completion: often unknown</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Something that I find really interesting in the OS literature, which is completely glossed over in <i>Algorithms to Live By</i>, is that most of modern scheduling algorithms don’t make any assumptions about the length of each task when scheduling them. People are notoriously bad at estimating tasks<sup><a class="footref" href="#fn.4" id="fnr.4">4</a></sup>, so having a system which can process multiple tasks of arbitrary lengths robustly seems rather interesting. In both of the modern schedulers described below, the scheduler is designed to handle a mix of long and short running tasks with minimal sacrifices on the run time of either.
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-orgbb24be2">
-<h3 id="orgbb24be2"><span class="section-number-3">1.3</span> Turnaround time vs response time: choose one</h3>
+<div class="outline-3" id="outline-container-org0dc82af">
+<h3 id="org0dc82af"><span class="section-number-3">1.3</span> Turnaround time vs response time: choose one</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 A natural metric to optimize for completing tasks is the “turnaround time”, defined as the time from task arrival to task completion. However, engineers of interactive systems quickly realized that considering only turnaround time leads to laggy and unresponsive interfaces. This is because, optimizing for turnaround time, the system would just run one task at time, for a long time. Thus, from the perspective of the user, their task would usually freeze up
@@ -317,8 +316,8 @@ The solution is to measure and optimize the response time, the time from the tas
 </p>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org862038e">
-<h3 id="org862038e"><span class="section-number-3">1.4</span> Input/output: blocks tasks</h3>
+<div class="outline-3" id="outline-container-orga550fa7">
+<h3 id="orga550fa7"><span class="section-number-3">1.4</span> Input/output: blocks tasks</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Another consideration when scheduling tasks is the waiting time for input/output. For instance, when the CPU is reading from or writing to a hard drive, it must wait for the hard drive to respond before continuing to execute the task, as hard drives are orders of magnitude slower than CPUs. But it could be executing other tasks during this time!
@@ -329,12 +328,12 @@ A similar principle applies for human tasks. When running the laundry, for insta
 </div>
 </div>
 </div>
-<div class="outline-2" id="outline-container-org735252a">
-<h2 id="org735252a"><span class="section-number-2">2</span> Modern schedulers</h2>
+<div class="outline-2" id="outline-container-org6c9d6c8">
+<h2 id="org6c9d6c8"><span class="section-number-2">2</span> Modern operating system schedulers</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div class="outline-3" id="outline-container-orgc2cac2e">
-<h3 id="orgc2cac2e"><span class="section-number-3">2.1</span> Multi-level feedback queue</h3>
+<div class="outline-3" id="outline-container-org9e6f815">
+<h3 id="org9e6f815"><span class="section-number-3">2.1</span> Multi-level feedback queue</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The multi-level feedback queue strikes a balance between turnaround time (how long it takes you to complete a task) and response time (how long before you start on the task), while making few assumptions about the run time of the tasks. How does it do this?
@@ -351,13 +350,13 @@ Essentially, it schedules tasks according to the <a href="http://pages.cs.wisc.e
 </ol>
 <p>
 This system gives a higher priority to incoming jobs. They’ll run first, maximizing response time. If they’re short, they’ll also finish quickly. However, if they turn out to be longer, they’ll get moved into a lower queue, which will only run after every other job. In order to continue running the longer jobs if there are too many interactive jobs, all the priorities are reset periodically.
-In some variants, the lower priority queues have longer time slices, as the non-interactive jobs are often CPU bound and this reduces <a href="#orgef1c5b8">context switching costs</a>.
+In some variants, the lower priority queues have longer time slices, as the non-interactive jobs are often CPU bound and this reduces <a href="#orgb254986">context switching costs</a>.
 </p>
 <p>
 Pros:
 </p>
 <ul class="org-ul">
-<li>automatic adjustment based on observed runtime, without task runtime estimates</li>
+<li>automatic adjustment of priorities based on observed runtime</li>
 <li>good tradeoff between response time and turnaround time</li>
 </ul>
 <p>
@@ -370,38 +369,48 @@ Cons:
 </ul>
 </div>
 </div>
-<div class="outline-3" id="outline-container-org572ca83">
-<h3 id="org572ca83"><span class="section-number-3">2.2</span> Fair-share scheduler</h3>
+<div class="outline-3" id="outline-container-org8cf8db3">
+<h3 id="org8cf8db3"><span class="section-number-3">2.2</span> Fair-share scheduler</h3>
 <div class="outline-text-3" id="text-2-2">
+<p>
+Rather optimizing turnaround time and response time, you could try to spend the same amount of time for each task. This is the idea behind the “<a href="https://en.wikipedia.org/wiki/Fair-share_scheduling">fair-share scheduler</a>”, used (with some variations) in the <a href="https://en.wikipedia.org/wiki/Completely_Fair_Scheduler">Linux kernel</a>. There are two main ways that people have implemented a fair-share system. In the first, you would allocate “tickets” to each task based on its priority, and then draw a ticket at random for each slot of time. In the second (and the way Linux does it), keep track of how much time you’ve spent on each task (a “virtual runtime”) and run the task you’ve spent the least time on at each slot.<sup><a class="footref" href="#fn.6" id="fnr.6">6</a></sup>
+</p>
+<p>
+Pros:
+</p>
 <ul class="org-ul">
-<li>optimizes fair CPU usage</li>
-<li>prioritizes response time (?)</li>
-<li>CFS part of linux</li>
+<li>ticket system is simple to implement</li>
+<li>easy to tune the priority of tasks</li>
+</ul>
+<p>
+Cons:
+</p>
+<ul class="org-ul">
+<li>tasks which mostly wait on input do not get their fair share</li>
+<li>must tune priorities manually</li>
+<li>the second approach (based on “virtual runtime”) seems harder to implement in practice</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="outline-2" id="outline-container-org11b4ce7">
-<h2 id="org11b4ce7"><span class="section-number-2">3</span> Multitasking: a human perspective</h2>
+<div class="outline-2" id="outline-container-orgb0319a2">
+<h2 id="orgb0319a2"><span class="section-number-2">3</span> Scheduling for humans</h2>
 <div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li>multiprocessing can happen, but it has to be split across domains
-<ul class="org-ul">
-<li>for instance, doing a visuomotor task but listening to audio is pretty common</li>
-<li>similarly, having a conversation is possible while watching things</li>
-<li>sensorimotor task (e.g. sewing) and watching a show</li>
-<li>walking and chewing gum</li>
-</ul></li>
-<li>supertaskers</li>
-<li>delegating tasks within a team
-<ul class="org-ul">
-<li>multiple queues?</li>
-</ul></li>
-</ul>
+<p>
+Between the two modern scheduling systems, the fair-share scheduling system seems like the easiest to adopt. Indeed, the author and artist <a href="https://www.vivianeschwarz.co.uk/">Viviane Schwarz</a> <a href="https://usesthis.com/interviews/viviane.schwarz/">uses</a> a fair-share scheduling system for her tasks, to great effect:
+</p>
+<blockquote>
+<p>
+One of my most important work tools is a bingo wheel which I throw wooden balls in labelled with the projects I need to work on. […] I spin out a project, set a timer and work on it for half an hour or an hour to take it forward, then I spin again until it’s time to stop working. It sounds quite ridiculous but it beats every other system I’ve ever tried for productivity; you just have to make sure the right balls are in the cage, throw in more if a deadline is approaching or take some out if something gets less urgent.
+</p>
+</blockquote>
+<p>
+I’m intrigued by the automatic priority management of the multilevel feedback queue as well, although using it would require logging time spent on each task. I haven’t found anyone doing this exactly, but <a href="https://webcache.googleusercontent.com/search?q=cache:yzOGbMOldToJ:https://applyhitech.com/2018/04/27/does-your-to-do-list-behave-like-a-queue-a-stack-or-a-priority-queue/+&amp;cd=16&amp;hl=en&amp;ct=clnk&amp;gl=us&amp;client=ubuntu">there is</a> <a href="https://briantomasik.com/how-i-use-todo-lists/#Treating_todo_lists_as_priority_queues">some</a> <a href="https://softwarerecs.stackexchange.com/questions/66547/todo-list-application-that-uses-a-priority-queue">precedent</a> in thinking of todo lists as priority queues.
+</p>
+<p>
+Either way, I couldn’t find anything to manage todo lists in this way. It would be a useful application if someone does develop it!
+</p>
 </div>
-</div>
-<div class="outline-2" id="outline-container-org0b135d2">
-<h2 id="org0b135d2"><span class="section-number-2">4</span> Summary of lessons learned</h2>
 </div>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
@@ -418,6 +427,9 @@ For instance, the majority of students underestimated how long it would take to 
 </p></div></div>
 <div class="footdef"><sup><a class="footnum" href="#fnr.5" id="fn.5">5</a></sup> <div class="footpara"><p class="footpara">
 Lifted from <i>Operating Systems: Three Easy Pieces</i> by Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau.
+</p></div></div>
+<div class="footdef"><sup><a class="footnum" href="#fnr.6" id="fn.6">6</a></sup> <div class="footpara"><p class="footpara">
+To continue spending time on long running tasks, you need <a href="https://stackoverflow.com/questions/34999892/completely-fair-scheduler-cfs-vruntime-of-long-running-processes">to pretend</a> that new tasks have been running for the minimum time you’ve spent on any current task.
 </p></div></div>
 </div>
 </div></div>

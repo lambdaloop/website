@@ -1,4 +1,4 @@
-#+TITLE: Lessons in time management from operating systems
+#+TITLE: How to prioritize todo lists effectively like computers
 
 # should rephrase this to have less first person, more approachable writing
 
@@ -47,7 +47,7 @@ Another consideration when scheduling tasks is the waiting time for input/output
 
 A similar principle applies for human tasks. When running the laundry, for instance, it's more efficient to not wait for the washer to finish before starting another task. Similarly, when waiting for a reply to a message or waiting for water to boil, it's more efficient be doing something else. You can think of delegating tasks to people or machines in this way as well. Still, how can you schedule tasks most efficiently while keeping this in mind? The modern algorithms below handle these issues naturally.
 
-* Modern schedulers
+* Modern operating system schedulers
 ** Multi-level feedback queue
 # image portraying multi-level feedback queue
 
@@ -67,7 +67,7 @@ This system gives a higher priority to incoming jobs. They'll run first, maximiz
 In some variants, the lower priority queues have longer time slices, as the non-interactive jobs are often CPU bound and this reduces [[*Context switching: cognitive vs procedural][context switching costs]].
 
 Pros:
-- automatic adjustment based on observed runtime, without task runtime estimates
+- automatic adjustment of priorities based on observed runtime
 - good tradeoff between response time and turnaround time
 
 Cons:
@@ -77,21 +77,37 @@ Cons:
 
 
 ** Fair-share scheduler
-- optimizes fair CPU usage
-- prioritizes response time (?)
-- CFS part of linux
+Rather optimizing turnaround time and response time, you could try to spend the same amount of time for each task. This is the idea behind the "[[https://en.wikipedia.org/wiki/Fair-share_scheduling][fair-share scheduler]]", used (with some variations) in the [[https://en.wikipedia.org/wiki/Completely_Fair_Scheduler][Linux kernel]]. There are two main ways that people have implemented a fair-share system. In the first, you would allocate "tickets" to each task based on its priority, and then draw a ticket at random for each slot of time. In the second (and the way Linux does it), keep track of how much time you've spent on each task (a "virtual runtime") and run the task you've spent the least time on at each slot.[fn:long-tasks]
 
-* Multitasking: a human perspective
-- multiprocessing can happen, but it has to be split across domains
-  + for instance, doing a visuomotor task but listening to audio is pretty common
-  + similarly, having a conversation is possible while watching things
-  + sensorimotor task (e.g. sewing) and watching a show
-  + walking and chewing gum
-- supertaskers
-
-- delegating tasks within a team
-  + multiple queues?
+[fn:long-tasks] To continue spending time on long running tasks, you need [[https://stackoverflow.com/questions/34999892/completely-fair-scheduler-cfs-vruntime-of-long-running-processes][to pretend]] that new tasks have been running for the minimum time you've spent on any current task.
 
 
-* Summary of lessons learned
+Pros:
+- ticket system is simple to implement
+- easy to tune the priority of tasks
 
+Cons:
+- tasks which mostly wait on input do not get their fair share
+- must tune priorities manually
+- the second approach (based on "virtual runtime") seems harder to implement in practice
+
+# * Multitasking: a human perspective
+# - multiprocessing can happen, but it has to be split across domains
+#   + for instance, doing a visuomotor task but listening to audio is pretty common
+#   + similarly, having a conversation is possible while watching things
+#   + sensorimotor task (e.g. sewing) and watching a show
+#   + walking and chewing gum
+# - supertaskers
+
+# - delegating tasks within a team
+#   + multiple queues?
+
+* Scheduling for humans
+Between the two modern scheduling systems, the fair-share scheduling system seems like the easiest to adopt. Indeed, the author and artist [[https://www.vivianeschwarz.co.uk/][Viviane Schwarz]] [[https://usesthis.com/interviews/viviane.schwarz/][uses]] a fair-share scheduling system for her tasks, to great effect:
+#+begin_quote
+One of my most important work tools is a bingo wheel which I throw wooden balls in labelled with the projects I need to work on. [...] I spin out a project, set a timer and work on it for half an hour or an hour to take it forward, then I spin again until it's time to stop working. It sounds quite ridiculous but it beats every other system I've ever tried for productivity; you just have to make sure the right balls are in the cage, throw in more if a deadline is approaching or take some out if something gets less urgent.
+#+end_quote
+
+I'm intrigued by the automatic priority management of the multilevel feedback queue as well, although using it would require logging time spent on each task. I haven't found anyone doing this exactly, but [[https://webcache.googleusercontent.com/search?q=cache:yzOGbMOldToJ:https://applyhitech.com/2018/04/27/does-your-to-do-list-behave-like-a-queue-a-stack-or-a-priority-queue/+&cd=16&hl=en&ct=clnk&gl=us&client=ubuntu][there is]] [[https://briantomasik.com/how-i-use-todo-lists/#Treating_todo_lists_as_priority_queues][some]] [[https://softwarerecs.stackexchange.com/questions/66547/todo-list-application-that-uses-a-priority-queue][precedent]] in thinking of todo lists as priority queues.
+
+Either way, I couldn't find anything to manage todo lists in this way. It would be a useful application if someone does develop it!
