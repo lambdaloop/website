@@ -6,13 +6,11 @@ Useful resources:
 - [[https://mitpress.mit.edu/sites/default/files/titles/content/sicm_edition_2/book.html][Official online version of the book]]
 - [[http://groups.csail.mit.edu/mac/users/gjs/6946/index.html][The class related to the book]]
 
-You need the "scmutils" package, here are installation instructions:
-http://groups.csail.mit.edu/mac/users/gjs/6946/installation.html
+You need the "scmutils" package, here are [[http://groups.csail.mit.edu/mac/users/gjs/6946/installation.html][installation instructions]].
 
 I also converted the html chapters and combined them into an [[https://drive.google.com/file/d/1zcfdFlCDPaBD3ArCQ9K_gpy0Jidu40zF/view?usp=sharing][unofficial pdf]], which I find easier to read.
 
-* General comments
-
+* Comments about scmutils
 ~(square v)~ works for vector ~v~, giving $|v|^2$. This is useful to simplify some code.
 
 scmutils actually bundles a ~let&~ which can deconstruct vectors. Here is an example use case from the code

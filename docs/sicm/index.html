@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!-- 2021-01-04 Mon 08:16 -->
+<!-- 2021-01-04 Mon 08:17 -->
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Structure and Interpretation of Classical Mechanics notes</title>
@@ -285,14 +285,14 @@ window.MathJax = {
 <h1 class="title">Structure and Interpretation of Classical Mechanics notes</h1>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgad53fd0">1. Getting started</a></li>
-<li><a href="#org7d97fbd">2. General comments</a></li>
-<li><a href="#orgd7a7196">3. Comments about sections</a></li>
-<li><a href="#orgd0d6119">4. Comments about the exercises</a></li>
+<li><a href="#orgdb6baf6">1. Getting started</a></li>
+<li><a href="#org761d3ee">2. Comments about scmutils</a></li>
+<li><a href="#org10a51df">3. Comments about sections</a></li>
+<li><a href="#org08ff6f5">4. Comments about the exercises</a></li>
 </ul>
 </div>
-<div class="outline-2" id="outline-container-orgad53fd0">
-<h2 id="orgad53fd0"><span class="section-number-2">1</span> Getting started</h2>
+<div class="outline-2" id="outline-container-orgdb6baf6">
+<h2 id="orgdb6baf6"><span class="section-number-2">1</span> Getting started</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Useful resources:
@@ -302,16 +302,15 @@ Useful resources:
 <li><a href="http://groups.csail.mit.edu/mac/users/gjs/6946/index.html">The class related to the book</a></li>
 </ul>
 <p>
-You need the “scmutils” package, here are installation instructions:
-<a href="http://groups.csail.mit.edu/mac/users/gjs/6946/installation.html">http://groups.csail.mit.edu/mac/users/gjs/6946/installation.html</a>
+You need the “scmutils” package, here are <a href="http://groups.csail.mit.edu/mac/users/gjs/6946/installation.html">installation instructions</a>.
 </p>
 <p>
 I also converted the html chapters and combined them into an <a href="https://drive.google.com/file/d/1zcfdFlCDPaBD3ArCQ9K_gpy0Jidu40zF/view?usp=sharing">unofficial pdf</a>, which I find easier to read.
 </p>
 </div>
 </div>
-<div class="outline-2" id="outline-container-org7d97fbd">
-<h2 id="org7d97fbd"><span class="section-number-2">2</span> General comments</h2>
+<div class="outline-2" id="outline-container-org761d3ee">
+<h2 id="org761d3ee"><span class="section-number-2">2</span> Comments about scmutils</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <code>(square v)</code> works for vector <code>v</code>, giving \(|v|^2\). This is useful to simplify some code.
@@ -328,8 +327,8 @@ scmutils actually bundles a <code>let&amp;</code> which can deconstruct vectors.
 </div>
 </div>
 </div>
-<div class="outline-2" id="outline-container-orgd7a7196">
-<h2 id="orgd7a7196"><span class="section-number-2">3</span> Comments about sections</h2>
+<div class="outline-2" id="outline-container-org10a51df">
+<h2 id="org10a51df"><span class="section-number-2">3</span> Comments about sections</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Section 1.9 - I still don’t understand the value of \(\bar \Gamma\) (<code>Gamma-bar</code> in scheme). The examples seem pretty contrived and although Sussman and Wisdom point out that their <code>F-&gt;C</code> function avoids derivatives, it feels rather that they get implicitly shoved into \(\Gamma\).
@@ -340,8 +339,8 @@ Section 1.10.1 - I don’t follow the reasoning in the “Alternatively” secti
 </p>
 </div>
 </div>
-<div class="outline-2" id="outline-container-orgd0d6119">
-<h2 id="orgd0d6119"><span class="section-number-2">4</span> Comments about the exercises</h2>
+<div class="outline-2" id="outline-container-org08ff6f5">
+<h2 id="org08ff6f5"><span class="section-number-2">4</span> Comments about the exercises</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Exercise 1.25 - I setup the Foucault pendulum using the recommended transformations, but finding the Lagrange equations ran out of memory. The problem doesn’t ask for Lagrange equations, so perhaps this is intended??
