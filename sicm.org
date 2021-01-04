@@ -57,6 +57,7 @@ If the equations are stored in the variable ~equations~, then the code I used to
  )
 )
 #+end_src
+
 When I did it, a lot of terms actually simplified to just $m D^2 x$ or $m D^2 y$ (for $x$ or $y$ equation, respectively).
 
 Exercise 1.36 - This problem is a lot easier (and makes more sense) if you specify the angular coordinates as $(\theta, \phi)$ where $\theta$ is the colatitude for the x-axis and $\phi$ is the longitude measured from the y-axis. As rotating $\phi$ is much easier than rotating $\theta$ is spherical coordinates.

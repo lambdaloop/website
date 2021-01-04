@@ -1,4 +1,4 @@
-#+TITLE: How to prioritize todo lists effectively like computers
+#+TITLE: Time management in human and computer systems
 
 # should rephrase this to have less first person, more approachable writing
 
