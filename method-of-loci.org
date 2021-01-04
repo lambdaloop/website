@@ -1,6 +1,9 @@
 #+TITLE: How to use the method of loci
+#+OPTIONS: toc:nil
 
-Websites covering the method of loci are strangely lacking. Below are a couple of resources related to the method's usage, in one place.
+Websites covering the method of loci for practical use are strangely lacking. Below are a couple of resources related to the method's usage, in one place.
+
+#+TOC: headlines 2
 
 * How to start using method of loci
 

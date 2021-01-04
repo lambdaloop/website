@@ -47,9 +47,11 @@ If the equations are stored in the variable ~equations~, then the code I used to
 (show-expression
  (simplify
   (substitute
-   'r_0 '(sqrt (+ (expt a_0 2) (* 2 a_0 (x t)) (expt (y t) 2) (expt (x t) 2)))
+   'r_0 '(sqrt (+ (expt a_0 2) (* 2 a_0 (x t))
+                  (expt (y t) 2) (expt (x t) 2)))
    (substitute
-    'r_1 '(sqrt (+ (expt a_1 2) (* -2 a_1 (x t)) (expt (y t) 2) (expt (x t) 2)))
+    'r_1 '(sqrt (+ (expt a_1 2) (* -2 a_1 (x t))
+                   (expt (y t) 2) (expt (x t) 2)))
     (simplify equations)
    ))
  )
