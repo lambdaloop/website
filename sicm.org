@@ -2,13 +2,14 @@
 
 * Getting started
 
-scmutils installation
+Useful resources:
+- [[https://mitpress.mit.edu/sites/default/files/titles/content/sicm_edition_2/book.html][Official online version of the book]]
+- [[http://groups.csail.mit.edu/mac/users/gjs/6946/index.html][The class related to the book]]
+
+You need the "scmutils" package, here are installation instructions:
 http://groups.csail.mit.edu/mac/users/gjs/6946/installation.html
 
-Class details
-http://groups.csail.mit.edu/mac/users/gjs/6946/index.html
-
-
+I also converted the html chapters and combined them into an [[https://drive.google.com/file/d/1zcfdFlCDPaBD3ArCQ9K_gpy0Jidu40zF/view?usp=sharing][unofficial pdf]], which I find easier to read.
 
 * General comments
 
@@ -21,8 +22,15 @@ scmutils actually bundles a ~let&~ which can deconstruct vectors. Here is an exa
     (- (* 1/2 m (square v))
        (* m g y))))
 #+end_src
-pp
-* comments about the exercises
+
+* Comments about sections
+
+Section 1.9 - I still don't understand the value of $\bar \Gamma$ (~Gamma-bar~ in scheme). The examples seem pretty contrived and although Sussman and Wisdom point out that their ~F->C~ function avoids derivatives, it feels rather that they get implicitly shoved into $\Gamma$.
+It seems to only be used once in the book (in section 2.2), and even there it seems that you could rewrite those functions without $\bar \Gamma$.
+
+Section 1.10.1 - I don't follow the reasoning in the "Alternatively" section. It shows that if $\lambda$ can be written as a state-dependent function, then a Lagrangian with $\lambda$ added has the same Lagrange equations as an augmented Lagrangian. However, the last paragraph makes it seem like the converse was proven (if you have an augmented Lagrangian, then $\lambda$ can be a state-dependent function).
+
+* Comments about the exercises
 
 Exercise 1.25 - I setup the Foucault pendulum using the recommended transformations, but finding the Lagrange equations ran out of memory. The problem doesn't ask for Lagrange equations, so perhaps this is intended??
 
@@ -55,9 +63,3 @@ Exercise 1.36 - This problem is a lot easier (and makes more sense) if you speci
 
 Exercise 1.38 - Part d should really be $\mathscr{E}[F \circ C] = D_t (DF \circ C) \partial_2 C + (DF \circ C) \mathscr{E}[C]$
 
-* sections comments
-
-Section 1.9 - I still don't understand the value of $\bar \Gamma$ (~Gamma-bar~ in scheme). The examples seem pretty contrived and although Sussman and Wisdom point out that their ~F->C~ function avoids derivatives, it feels rather that they get implicitly shoved into $\Gamma$.
-It seems to only be used once in the book (in section 2.2), and even there it seems that you could rewrite those functions without $\bar \Gamma$.
-
-Section 1.10.1 - I don't follow the reasoning in the "Alternatively" section. It shows that if $\lambda$ can be written as a state-dependent function, then a Lagrangian with $\lambda$ added has the same Lagrange equations as an augmented Lagrangian. However, the last paragraph makes it seem like the converse was proven (if you have an augmented Lagrangian, then $\lambda$ can be a state-dependent function).
