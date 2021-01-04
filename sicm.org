@@ -1,0 +1,63 @@
+#+TITLE: Structure and Interpretation of Classical Mechanics notes
+
+* Getting started
+
+scmutils installation
+http://groups.csail.mit.edu/mac/users/gjs/6946/installation.html
+
+Class details
+http://groups.csail.mit.edu/mac/users/gjs/6946/index.html
+
+
+
+* General comments
+
+~(square v)~ works for vector ~v~, giving $|v|^2$. This is useful to simplify some code.
+
+scmutils actually bundles a ~let&~ which can deconstruct vectors. Here is an example use case from the code
+#+begin_src scheme
+(define ((L m g) state)
+  (let& (((_ (x y) v) state))
+    (- (* 1/2 m (square v))
+       (* m g y))))
+#+end_src
+pp
+* comments about the exercises
+
+Exercise 1.25 - I setup the Foucault pendulum using the recommended transformations, but finding the Lagrange equations ran out of memory. The problem doesn't ask for Lagrange equations, so perhaps this is intended??
+
+Exercise 1.30 - This may be trivial, but I got tripped up plotting time vs theta, whereas I should have been plotting   $(r \cos(\theta), r \sin(\theta))$
+
+Exercise 1.31 - As specified for 1.25, finding Lagrange equations ran out of memory. Finding the state derivative also ran out of memory. I tried various settings and using numbers but could not get it to work.
+
+Exercise 1.35 - The Lagrange equations obtained are really messy, largely due to the sqrt factors which are really $r_0$ and $r_1$. I found I needed to simplify the equations manually, and tune the simplify parameters to get (somewhat) readable equations.
+
+If the equations are stored in the variable ~equations~, then the code I used to simplify them was:
+#+begin_src scheme
+(sqrt-factor-simplify false)
+(divide-out-terms-simplify #t)
+(set! *factoring* #t)
+
+(show-expression
+ (simplify
+  (substitute
+   'r_0 '(sqrt (+ (expt a_0 2) (* 2 a_0 (x t)) (expt (y t) 2) (expt (x t) 2)))
+   (substitute
+    'r_1 '(sqrt (+ (expt a_1 2) (* -2 a_1 (x t)) (expt (y t) 2) (expt (x t) 2)))
+    (simplify equations)
+   ))
+ )
+)
+#+end_src
+When I did it, a lot of terms actually simplified to just $m D^2 x$ or $m D^2 y$ (for $x$ or $y$ equation, respectively).
+
+Exercise 1.36 - This problem is a lot easier (and makes more sense) if you specify the angular coordinates as $(\theta, \phi)$ where $\theta$ is the colatitude for the x-axis and $\phi$ is the longitude measured from the y-axis. As rotating $\phi$ is much easier than rotating $\theta$ is spherical coordinates.
+
+Exercise 1.38 - Part d should really be $\mathscr{E}[F \circ C] = D_t (DF \circ C) \partial_2 C + (DF \circ C) \mathscr{E}[C]$
+
+* sections comments
+
+Section 1.9 - I still don't understand the value of $\bar \Gamma$ (~Gamma-bar~ in scheme). The examples seem pretty contrived and although Sussman and Wisdom point out that their ~F->C~ function avoids derivatives, it feels rather that they get implicitly shoved into $\Gamma$.
+It seems to only be used once in the book (in section 2.2), and even there it seems that you could rewrite those functions without $\bar \Gamma$.
+
+Section 1.10.1 - I don't follow the reasoning in the "Alternatively" section. It shows that if $\lambda$ can be written as a state-dependent function, then a Lagrangian with $\lambda$ added has the same Lagrange equations as an augmented Lagrangian. However, the last paragraph makes it seem like the converse was proven (if you have an augmented Lagrangian, then $\lambda$ can be a state-dependent function).
