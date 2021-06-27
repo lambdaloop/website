@@ -1,0 +1,94 @@
+#+TITLE: CV4Animals 2021 summary
+
+It's been an exciting past few years within animal tracking, and the 2021 [[https://www.cv4animals.com/][CV4Animals]] workshop is the culmination of all of this. It was fun to see so many animal tracking people gathered in one place, even if virtually.
+While watching all the presentations from my increasingly hot apartment, something clicked for me and I got a glimpse of the whole field and its future.
+Or perhaps it was just the heat. Still, here are some of the themes that jumped out to me.
+
+* Animal datasets
+
+#+CAPTION: A selection of the latest animal datasets, from the [[https://drive.google.com/file/d/1TH63UF9ro2w8DY5G3lwPDMtrLsUbA1Hi/view][SuperAnimal]] poster
+#+ATTR_HTML: :style max-height: 350px
+[[file:images/cv4animals-2021/superanimal-datasets.jpg]]
+
+
+Datasets featuring animals are becoming increasingly prevalent and rightly so. Modern human pose estimation networks are only possible because of datasets like [[https://cocodataset.org/#keypoints-2020][COCO Keypoints]], [[http://human-pose.mpi-inf.mpg.de/][MPII Human Pose Dataset]], and [[http://vision.imar.ro/human3.6m/description.php][Human 3.6M]]. A good collection of common ground truth datasets will be crucial in evaluating the many different algorithms for animal pose estimation.
+
+Mackenzie Mathis highlighted a lot of the currently available datasets and how pretraining on these could transfer to other datasets in the [[https://drive.google.com/file/d/1TH63UF9ro2w8DY5G3lwPDMtrLsUbA1Hi/view][SuperAnimal]] work from her lab. Seems like if you start with a network pretrained to predict animal poses (rather than classify images from Imagenet), it generalizes much better on new animals. Based on this idea, they've built a [[https://contrib.deeplabcut.org/][new interface]] to crowdsource much more data for even better pretrained networks.
+
+There are starting to be a decent amount of datasets, certainly enough to test novel networks. I could see room for more though. There needs to be more cat datasets to match the dog datasets, and there are currently still very few insect or aquatic animal datasets.
+
+Some keypoint datasets that were highlighted at the conference were:
+- [[http://www.mackenziemathislab.org/horse10][Horse-10]]: 30 horses annotated for benchmarking out of domain robustness
+- [[https://sites.google.com/view/animal-pose/][Animal-pose]]: annotations on dogs, cats, cows, horses, and sheep
+- [[https://github.com/benjiebob/StanfordExtra][StanfordExtra]]: 12k images of dogs
+- [[https://github.com/benjiebob/BADJA][BADJA]]: 9 videos of different animals
+- [[https://cvwc2019.github.io/challenge.html][ATRW]]: Bounding boxes and keypoints for Amur tigers in the wild
+- [[https://marcbadger.github.io/avian-mesh/][3D Cowbirds]]: 6300 cowbird segmentations, 1000 cowbird keypoints, and a 3D cowbird mesh model
+- [[https://github.com/African-Robotics-Unit/AcinoSet][AcinoSet]] ([[https://drive.google.com/file/d/1B9Z_9jadSVAregYWNUu0J5GGH1j9v7gj/view?usp=sharing][poster]]): multi-view dataset of a free-running cheetah
+- [[https://www.frontiersin.org/articles/10.3389/fnbeh.2020.581154/full][MacaquePose]] ([[https://drive.google.com/file/d/1XFtyMa5AD3sTZfmoICQ8XUzPKVPZunWQ/view][poster]]): 13k images of macaque monkeys in the wild
+- [[https://figshare.com/collections/Rat_7M/5295370/3][Rat 7M]]: 7 million multi-view video frames of rats
+
+Some datasets for tracking whole animals from videos highlighted at the conference:
+- [[https://scorhe.nih.gov/][SCORHE]]: mice in a cage, 2 fisheye cameras
+- [[https://data.bris.ac.uk/data/dataset/4vnrca7qw1642qlwxjadp87h7][Cows2021]] ([[https://drive.google.com/file/d/14GcN4OBqsC1d93NLKEWnzaGN59VCrrRB/view][poster]]): cows in a pen with top down camera
+- [[https://github.com/AIFARMS/multi-camera-pig-tracking][Pigs]] ([[https://drive.google.com/file/d/1ecdUNkKhlcNxA0ZbvaZBc8qJdrLHAmUV/view][poster]]): pigs in a pen, multi-view
+- [[https://vap.aau.dk/3d-zef/][3D-Zef]] ([[https://vap.aau.dk/3d-zef/][poster]]): zebrafish in a tank, multi-view
+
+There was also one dataset of images with classes (no boxes or keypoints):
+- [[https://www.crcv.ucf.edu/research/projects/florida-wildlife-camera-trap-dataset/][Florida Wildlife Camera Trap]] ([[https://drive.google.com/file/d/1obALKqGCvhZFf-0nejcse1r0Yd0J2NnT/view][poster]]): 104k images of 22 different animals from camera traps
+
+
+* Synthetic data
+#+CAPTION: An impressive workflow for generating synthetic data, from the [[https://drive.google.com/file/d/1TtpimzqQ2ZKw31GbRBxlXLcClyCSBAtD/view][synthetic animated mouse]] poster
+#+ATTR_HTML: :style max-height: 350px
+[[file:images/cv4animals-2021/synthetic-mouse.jpg]]
+
+Along with more datasets, there was a lot of interest in using synthetic data to get a lot of valid ground truth by spending hours making an animation instead of spending hours manually annotating images. Although there is more set up, using synthetic data can make it viable to generate millions of annotated frames. I feel like this is a really promising technique and I was somewhat disappointed that none of the main talks mentioned synthetic data.
+
+I was really impressed with the [[https://www.nature.com/articles/s41592-021-01103-9][synthetic animated mouse]] work (image above). Their [[https://osf.io/5swfm/][mouse videos]] look so good, both the original animation and the modified ones with the style altered to mimic the experiment!! If I were trying to track mice I would definitely look into their setup, perhaps along with a network pretrained on [[https://figshare.com/collections/Rat_7M/5295370/3][Rat 7M]].
+
+There were more synthetic posters as well:
+- [[https://drive.google.com/file/d/1kEWTiC_faNLjTPHqz2O8EzaFmnTLivx4/view?usp=sharing][SyDog]]: synthetically generated dog dataset
+- [[https://drive.google.com/file/d/1Txyqj7Mg3mHXXoHvE8BiV3byaBmDTbD2/view?usp=sharing][DynaDog+T]]: a new 3D dog model
+- [[https://drive.google.com/file/d/1S5q2JA8PDo0YV280pNdKV0TVpDB_Z7MX/view?usp=sharing][ZooBuilder]]: using available 3D animations as data
+- [[https://drive.google.com/file/d/1LrSRXug_DN8hGMvzbTj2WOPDXsFL7Gfx/view?usp=sharing][Style transfer for synthetic samples]]
+
+* 3D models for animals
+
+There was an odd focus in the main talks on estimating full 3D animal shape models, whereas this was much less emphasized in the poster sessions. Perhaps this reflects the interests of the organizers or their vision of where the field should be? Personally, I think these models are interesting and useful, but perhaps just as interesting as new datasets, synthetic data, and behavior. Since this was the focus of the talks, I'll cover a bit more ground here.
+
+In any case, I did enjoy hearing about all the different ways to skin a cat! It was interesting to contrast Silvia Zuffi's models of quadrupeds with Ben Biggs' quadruped models (working with Andrew Fitzgibbon) and with Marc Badger's bird models. Each brought something different.
+
+#+CAPTION: How to model a zebra according to Silvia Zuffi, from the [[https://ps.is.tuebingen.mpg.de/uploads_file/attachment/attachment/533/6034_after_pdfexpress.pdf][Three-D Safari]] paper
+#+ATTR_HTML: :style max-height: 350px
+[[file:images/cv4animals-2021/3d-zebra.jpg]]
+
+Silvia pioneered the [[https://openaccess.thecvf.com/content_cvpr_2017/papers/Zuffi_3D_Menagerie_Modeling_CVPR_2017_paper.pdf][skinned multi-animal linear (SMAL)]] model pipeline. She built a general 3D model from scans of animal toys, which she could fit to images with annotated keypoints and silhouettes. In follow up work, she showed how to [[https://files.is.tue.mpg.de/black/papers/zuffiCVPR2018.pdf][refine the shape of the 3D models]] for specific animals, and then how to estimate the model directly from images of [[https://ps.is.tuebingen.mpg.de/uploads_file/attachment/attachment/533/6034_after_pdfexpress.pdf][animals in the wild]]. She's been pushing on adding a texture term in the model, so that you can have the 3D models actually look colorful which I find super cool.
+
+Ben Biggs showed how to take the SMAL model and [[https://arxiv.org/abs/1811.05804][make it work well in videos]] by throwing a full kitchen sink of optimization criteria. For good measure, he also showed a different way to refine the 3D model shape as well to estimate [[https://arxiv.org/pdf/2007.11110.pdf][dogs in the wild]]. From what I understood, it sounded like the shape refinement may be more precise than Silvia's, as it could handle the floppy dog ears.
+
+#+CAPTION: Reconstructed shapes of birds match their evolutionary tree [[https://yufu-wang.github.io/aves/files/Wang_et_al_CVPR_2021_aves.pdf][Birds of a Feather]] paper
+#+ATTR_HTML: :style max-height: 350px
+[[file:images/cv4animals-2021/umap-aves.jpg]]
+
+Personally, I liked Marc Badger's talk, because I could tell he wanted to tackle the biological questions as much as how to build a robust vision pipeline. As I found, there's a tradeoff between tackling both, but he seems to managing it quite nicely. He showed how to extend Silvia and Ben's work (and [[https://akanazawa.github.io/cmr/][Angjoo Kanazawa's]], among others) [[https://arxiv.org/abs/2008.06133][to cowbirds]] in the lab and then also [[https://yufu-wang.github.io/aves/files/Wang_et_al_CVPR_2021_aves.pdf][birds in the wild]].
+Connecting it to biology, he showed how the reconstructed shape of the birds matched their evolutionary lineage, which I found super cool.
+
+* Understanding behavior
+
+Once we have all the animals tracked, what do we do with all the tracking data? Certainly, there are applications to animation and augmented reality[fn:ar-animal]. But the biologists are particularly interested in understanding how animals behave. There were some interesting perspectives on both unsupervised and supervised decompositions of animal behavior.
+
+
+In the main talk series, Kristin Branson described her latest models to predict how flies move[fn:prediction-paper], with the aim of deconstructing these models and connecting them to the emerging fly connectome. The questions were really interesting, especially on whether predicting a group of flies in a bowl is harder than a single fly in a bowl, due to the interactions amongst flies. I'm personally still curious how she plans to dive into the fitted models to get insights about behavior.
+
+There were a few interesting posters that showed new ways to classify behavior from videos:
+- [[https://drive.google.com/file/d/1jVeHXJbTQ8l_gAoSmX8fADVBWpsWWi1i/view?usp=sharing][Interpreting Expert Annotation Differences in Animal Behavior]]
+- [[https://drive.google.com/file/d/1FmtGFy7FJFi4auf98X1VI7QJagmgVGZg/view?usp=sharing][Semi-supervised Sequence Modeling for Improved Behavioral Segmentation]]
+- [[https://drive.google.com/file/d/13HghAqOusIr8Iu11DZW3db8TwA4MlbWe/view?usp=sharing][Spatio-Temporal Event Segmentation for Wildlife Extended Videos]]
+- [[https://drive.google.com/file/d/1bCh4TzYOKJUfeGwxWHlFV5Z6Kt-mxMeO/view][Movement Tracks for the Automatic Detection of Fish Behavior in Videos]]
+- [[https://drive.google.com/file/d/1YMB2Kx5MJZlU-TfNvZdZoh2iVXr9-blS/view?usp=sharing][Unsupervised Detection of Mouse Behavioural Anomalies using Two-stream Convolutional Autoencoders]]
+- [[https://drive.google.com/file/d/1e-GxXDm4B9yLfuUaEDFKCDxs81XzNCKA/view?usp=sharing][Automatic Classification of Cichlid Behaviors Using 3D Convolutional Residual Networks]]
+
+[fn:ar-animal] Silvia Zuffi showed a slide of cute little fox in someone's hand. This is what we need from augmented reality.
+
+[fn:prediction-paper] I'm not sure that her work is published yet, but [[https://arxiv.org/abs/1611.00094][here]] is the closest paper I found from her publications.
