@@ -76,8 +76,11 @@ Connecting it to biology, he showed how the reconstructed shape of the birds mat
 
 * Understanding behavior
 
-Once we have all the animals tracked, what do we do with all the tracking data? Certainly, there are applications to animation and augmented reality[fn:ar-animal]. But the biologists are particularly interested in understanding how animals behave. There were some interesting perspectives on both unsupervised and supervised decompositions of animal behavior.
+#+CAPTION: Fly trajectories simulated using an artificial neural network, from [[https://arxiv.org/abs/1611.00094][this paper]]
+#+ATTR_HTML: :style max-height: 350px
+[[file:images/cv4animals-2021/fly-behavior.jpg]]
 
+Once we have all the animals tracked, what do we do with all the tracking data? Certainly, there are applications to animation and augmented reality[fn:ar-animal]. But the biologists are particularly interested in understanding how animals behave. There were some interesting perspectives on both unsupervised and supervised decompositions of animal behavior.
 
 In the main talk series, Kristin Branson described her latest models to predict how flies move[fn:prediction-paper], with the aim of deconstructing these models and connecting them to the emerging fly connectome. The questions were really interesting, especially on whether predicting a group of flies in a bowl is harder than a single fly in a bowl, due to the interactions amongst flies. I'm personally still curious how she plans to dive into the fitted models to get insights about behavior.
 
@@ -88,6 +91,8 @@ There were a few interesting posters that showed new ways to classify behavior f
 - [[https://drive.google.com/file/d/1bCh4TzYOKJUfeGwxWHlFV5Z6Kt-mxMeO/view][Movement Tracks for the Automatic Detection of Fish Behavior in Videos]]
 - [[https://drive.google.com/file/d/1YMB2Kx5MJZlU-TfNvZdZoh2iVXr9-blS/view?usp=sharing][Unsupervised Detection of Mouse Behavioural Anomalies using Two-stream Convolutional Autoencoders]]
 - [[https://drive.google.com/file/d/1e-GxXDm4B9yLfuUaEDFKCDxs81XzNCKA/view?usp=sharing][Automatic Classification of Cichlid Behaviors Using 3D Convolutional Residual Networks]]
+
+Overall, it feels like understanding behavior from automatically tracked kinematics is still relatively new. There aren't the same level of datasets with animal video behavior annotations as there are for animal keypoints. The models of behavior are also not as clear as the 3D models of animals. I'm excited to see where this will all go.
 
 [fn:ar-animal] Silvia Zuffi showed a slide of cute little fox in someone's hand. This is what we need from augmented reality.
 
