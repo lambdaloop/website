@@ -14,4 +14,4 @@ Organization
 - [[file:os-time-management.org][Time management in human and computer systems]]
 
 Conference writeups
-- CV4Animals 2021
+- [[file:cv4animals-2021.org][CV4Animals 2021]]
