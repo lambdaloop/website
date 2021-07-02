@@ -55,7 +55,7 @@ There were more synthetic posters as well:
 
 * 3D models for animals
 
-There was an odd focus in the main talks on estimating full 3D animal shape models, whereas this was much less emphasized in the poster sessions. Perhaps this reflects the interests of the organizers or their vision of where the field should be? Personally, I think these models are interesting and useful, but perhaps just as interesting as new datasets, synthetic data, and behavior. Since this was the focus of the talks, I'll cover a bit more ground here.
+There was an odd focus in the main talks on estimating full 3D animal shape models, whereas this was much less emphasized in the poster sessions. Perhaps this reflects the interests of the organizers or their vision of where the field should be? Personally, I think these models are interesting and useful, but perhaps just as interesting as new datasets, synthetic data, and behavior.
 
 In any case, I did enjoy hearing about all the different ways to skin a cat! It was interesting to contrast Silvia Zuffi's models of quadrupeds with Ben Biggs' quadruped models (working with Andrew Fitzgibbon) and with Marc Badger's bird models. Each brought something different.
 
@@ -71,7 +71,7 @@ Ben Biggs showed how to take the SMAL model and [[https://arxiv.org/abs/1811.058
 #+ATTR_HTML: :style max-height: 350px
 [[file:images/cv4animals-2021/umap-aves.jpg]]
 
-Personally, I liked Marc Badger's talk, because I could tell he wanted to tackle the biological questions as much as how to build a robust vision pipeline. As I found, there's a tradeoff between tackling both, but he seems to managing it quite nicely. He showed how to extend Silvia and Ben's work (and [[https://akanazawa.github.io/cmr/][Angjoo Kanazawa's]], among others) [[https://arxiv.org/abs/2008.06133][to cowbirds]] in the lab and then also [[https://yufu-wang.github.io/aves/files/Wang_et_al_CVPR_2021_aves.pdf][birds in the wild]].
+I particularly liked Marc Badger's talk, because I could tell he wanted to tackle the biological questions as much as how to build a robust vision pipeline. As I found, there's a tradeoff between tackling both, but he seems to managing it quite nicely. He showed how to extend Silvia and Ben's work (and [[https://akanazawa.github.io/cmr/][Angjoo Kanazawa's]], among others) [[https://arxiv.org/abs/2008.06133][to cowbirds]] in the lab and then also [[https://yufu-wang.github.io/aves/files/Wang_et_al_CVPR_2021_aves.pdf][birds in the wild]].
 Connecting it to biology, he showed how the reconstructed shape of the birds matched their evolutionary lineage, which I found super cool.
 
 * Understanding behavior
