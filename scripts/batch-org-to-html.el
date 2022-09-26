@@ -106,9 +106,10 @@ window.MathJax = {
   (let (id-list)
     (cl-labels ((get-id ()
                         (let ((id (url-encode-url
-                                   (replace-regexp-in-string
-                                    " " "-"
-                                    (org-get-heading t t t t))))
+                                   (downcase
+                                    (replace-regexp-in-string
+                                     " " "-"
+                                     (org-get-heading t t t t)))))
                               (dup-counter 1))
                           (while (member id id-list)
                             (setq id (format "%s-%d" id dup-counter))
