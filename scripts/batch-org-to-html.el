@@ -99,9 +99,29 @@ window.MathJax = {
   (setq make-backup-files nil)   ;; no need to create backup~ on generated files
   (find-file org-file))
 
+;; thanks to:
+;; https://archive.casouri.cat/note/2020/org-html-export:-permanent-section-link/index.html
+(defun luna-publish-populate-header-id ()
+  "Add CUSTOM_ID property to each header in current buffer."
+  (let (id-list)
+    (cl-labels ((get-id ()
+                        (let ((id (url-encode-url
+                                   (replace-regexp-in-string
+                                    " " "-"
+                                    (org-get-heading t t t t))))
+                              (dup-counter 1))
+                          (while (member id id-list)
+                            (setq id (format "%s-%d" id dup-counter))
+                            (cl-incf dup-counter))
+                          (push id id-list)
+                          id)))
+      (org-map-entries
+       (lambda ()
+         (org-entry-put (point) "CUSTOM_ID" (get-id)))))))
+
 (defun batch-org-to-html (org-file)
   "Convert ORG-FILE with a .org extension to FILE.html
 Use batch-org-to-html from the command line in batch mode."
   (batch-org-to-html--load-file org-file)
+  (luna-publish-populate-header-id)
   (org-html-export-to-html))
-
