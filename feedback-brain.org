@@ -1,0 +1,15 @@
+#+TITLE: Feedback: The dark matter of neuroscience
+
+started this as a response to the "sensory processing" view of the rain
+
+(from https://arxiv.org/pdf/2104.09743.pdf)
+"Brain computation can be understood as the transformation of representations across stages of process-
+ing [1]. Information about the world enters through the senses, is encoded and successively re-coded
+so as to extract behaviorally relevant information and transform its representational format to enable the
+inferences and decisions needed for successful action"
+
+- feedback is crucial, what is this sensory processing view??
+
+key points
+- 90% of neurons going to LGN are feedback
+- behavioral effects in V1 in mice

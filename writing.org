@@ -1,0 +1,17 @@
+#+TITLE: Writing by topic
+
+# Various essays, including thoughts and writeups of my different projects.
+
+Neuroscience
+- [[file:neuroscience-faculty-placements.org][Neuroscience faculty placements]]
+- [[file:bci-exploratorium.org][Mind controlled robotic arm at The Exploratorium]]
+- [[file:memory-encoding-openbci.org][Predicting memory encoding using an OpenBCI]]
+
+Notes on books
+- [[file:sicm.org][Structure and Interpretation of Classical Mechanics]]
+
+# Organization
+# - [[file:os-time-management.org][Time management in human and computer systems]]
+
+Conference writeups
+- [[file:cv4animals-2021.org][CV4Animals 2021]]
