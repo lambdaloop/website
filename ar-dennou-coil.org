@@ -31,7 +31,6 @@ Another possible use of the shared AR space is to hide spaces from other people 
 * Augmented and physical reality interaction
 
 
-
 - bag UI
 
 * Virtual screens

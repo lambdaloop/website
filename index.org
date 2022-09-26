@@ -10,8 +10,8 @@ Neuroscience
 Notes on books
 - [[file:sicm.org][Structure and Interpretation of Classical Mechanics]]
 
-Organization
-- [[file:os-time-management.org][Time management in human and computer systems]]
+# Organization
+# - [[file:os-time-management.org][Time management in human and computer systems]]
 
 Conference writeups
 - [[file:cv4animals-2021.org][CV4Animals 2021]]
