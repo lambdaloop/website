@@ -1,6 +1,6 @@
-#+TITLE: Various musings
+#+TITLE: Writing by topic
 
-Various essays, including thoughts and writeups of my different projects.
+# Various essays, including thoughts and writeups of my different projects.
 
 Neuroscience
 - [[file:neuroscience-faculty-placements.org][Neuroscience faculty placements]]
