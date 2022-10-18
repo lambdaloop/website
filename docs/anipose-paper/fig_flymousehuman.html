@@ -1,0 +1,157 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/littlefoot/dist/littlefoot.css"
+        />
+        <script
+            src="https://unpkg.com/littlefoot/dist/littlefoot.js"
+            type="application/javascript"
+        ></script>
+
+        <script>window.backupDefine = window.define; window.define = undefined;</script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+        <script>
+         document.addEventListener('DOMContentLoaded', function(){
+             var fig = document.getElementById("theFig");
+             var container = document.getElementById("container");
+             fig.onload = function(){
+                 var height = fig.height;
+                 var width = fig.width;
+                 var elements = container.getElementsByTagName("p");
+                 for (var i=0; i < elements.length; i+=1) {
+                     var p = elements[i];
+                     p.style.left = parseFloat(p.style.left) / 100.0 * height + "px";
+                     p.style.top = parseFloat(p.style.top) / 100.0 * width + "px";
+                     var a = document.createElement("a");
+                     a.href = p.attributes['href'].value;
+                     p.appendChild(a);
+                 }
+                 littlefoot.littlefoot({
+                     // activateOnHover: true,
+                     // dismissOnUnhover: true
+                 })
+             }
+
+              var mathElements = document.getElementsByClassName("math");
+             var macros = [];
+             for (var i = 0; i < mathElements.length; i++) {
+                 var texText = mathElements[i].firstChild;
+                 if (mathElements[i].tagName == "SPAN") {
+                     katex.render(texText.data, mathElements[i], {
+                         displayMode: mathElements[i].classList.contains('display'),
+                         throwOnError: false,
+                         macros: macros,
+                         fleqn: false
+                     });
+                 }
+             }
+         });
+        </script>
+        <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+    </head>
+    <body>
+        <div id="container" class="container">
+            <img id="theFig" class='img' src="figs/fig_flymousehuman.png" alt="" />
+            <!-- <canvas id="theCanvas" class="canvas"></canvas> -->
+            <p style="position: absolute; top: 25%; left: 1%;" href="#fn:1"></p>
+            <p style="position: absolute; top: 45%; left: 1%;" href="#fn:2"></p>
+            <p style="position: absolute; top: 75%; left: 1%;" href="#fn:3"></p>
+            <p style="position: absolute; top: 75%; left: 33%;" href="#fn:4"></p>
+            <p style="position: absolute; top: 75%; left: 51%;" href="#fn:5"></p>
+            <p style="position: absolute; top: 90%; left: 1%;" href="#fn:6"></p>
+            <p style="position: absolute; top: 110%; left: 1%;" href="#fn:7"></p>
+            <p style="position: absolute; top: 90%; left: 41%;" href="#fn:8"></p>
+            <p style="position: absolute; top: 90%; left: 65%;" href="#fn:9"></p>
+            <p style="position: absolute; top: 110%; left: 41%;" href="#fn:10"></p>
+            <p style="position: absolute; top: 110%; left: 65%;" href="#fn:11"></p>
+        </div>
+
+        <!-- Footnote List -->
+        <div class="footnotes">
+            <ol>
+                <li class="footnote" id="fn:1">A) Representative traces of coxa rotation, femur rotation, and femur-tibia flexion angles from tethered-walking flies. The median angle value is indicated for each angle as a reference point.</li>
+                <li class="footnote" id="fn:2">B) Probability distribution functions of coxa rotation, femur rotation, and femur-tibia flexion angles from 39 flies (1480 total seconds of walking). Only walking bouts are included. The distribution of femur-tibia flexion angles is broader for the front and rear legs, whereas the distribution of femur rotation angles is broader for the middle legs.</li>
+                <li class="footnote" id="fn:3">C) UMAP embedding of coxa rotation, femur rotation, femur-tibia flexion angles across all legs, and their derivatives. Axis units are arbitrary. Although each fly has a characteristic gait, there is a continuum across most flies, with some flies offset from the rest.</li>
+                <li class="footnote" id="fn:4">D) UMAP embedding as in C, colored by the phase of the step cycle, revealing the match between the circular structure of the embedding and the step phase.</li>
+                <li class="footnote" id="fn:5">E) UMAP embedding as in C, colored by front-right leg femur-tibia flexion and femur rotation, and middle right leg femur-tibia flexion and femur rotation. Across multiple flies, the dynamics of the middle legs are dominated by femur rotation, whereas the dynamics of the front legs are dominated by femur-tibia flexion.</li>
+                <li class="footnote" id="fn:6">F) Example 3D trajectories of a mouse reaching for a food pellet. The pellet is indicated as a black dot.</li>
+                <li class="footnote" id="fn:7">G) Mean distance to pellet holder as a function of time across all 4 mice (88 hits, 69 bumps, 28 misses). Shaded areas are 95% confidence intervals. When reaches are aligned to the grasp attempt (0 ms), the hand is farther from the pellet holder on miss trials compared to hit or bump trials. Averaging across all mice reveals a clear difference between reach types.</li>
+                <li class="footnote" id="fn:8">H) Representative trace of knee flexion from a walking human, tracked with Anipose. Data is from the Human 3.6M dataset. The median angle value is indicated at left as a reference point.</li>
+                <li class="footnote" id="fn:9">I) Probability distribution function of knee flexion angle from 7 humans. Only sessions that include walking are included.</li>
+                <li class="footnote" id="fn:10">J) UMAP embedding of knee flexion, hip rotation, and hip flexion angles across all legs, and their derivatives. Axis units are arbitrary. Although each human subject has a characteristic gait, most of the walking patterns map onto a common cylinder manifold.</li>
+                <li class="footnote" id="fn:11">K) UMAP embedding as in E but colored by knee flexion for each leg. Coloring by knee flexion angle reveals the common phase alignment of the circles across subjects.</li>
+            </ol>
+        </div>
+
+
+
+        <style>
+         .img {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+         }
+         .container {
+             width: 100%;
+             height: auto;
+             position: relative;
+             display: inline-block;
+             padding: 0;
+             margin: 0;
+             flex: 1 1 auto;
+         }
+
+
+         .littlefoot-footnote__button {
+             background-color: rgba(100, 100, 100, 0.6);
+         }
+
+         .littlefoot-footnote__wrapper {
+             width: 30em;
+         }
+
+         .littlefoot-footnote__button__ellipsis {
+             padding: 1em 1em;
+         }
+        </style>
+
+    </body>
+</html>
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Untitled</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+            </p>
+        <![endif]-->
+
+
+    </body>
+</html>

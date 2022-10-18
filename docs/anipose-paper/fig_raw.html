@@ -1,0 +1,123 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/littlefoot/dist/littlefoot.css"
+        />
+        <script
+            src="https://unpkg.com/littlefoot/dist/littlefoot.js"
+            type="application/javascript"
+        ></script>
+        <script>
+         window.addEventListener('DOMContentLoaded', function(){
+             var fig = document.getElementById("theFig");
+             var container = document.getElementById("container");
+             fig.onload = function(){
+                 var height = fig.height;
+                 var width = fig.width;
+                 var elements = container.getElementsByTagName("p");
+                 for (var i=0; i < elements.length; i+=1) {
+                     var p = elements[i];
+                     p.style.left = parseFloat(p.style.left) / 100.0 * height + "px";
+                     p.style.top = parseFloat(p.style.top) / 100.0 * width + "px";
+                     var a = document.createElement("a");
+                     a.href = p.attributes['href'].value;
+                     p.appendChild(a);
+                 }
+                 littlefoot.littlefoot({
+                     // activateOnHover: true,
+                     // dismissOnUnhover: true
+                 })
+             }
+         });
+        </script>
+
+        <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+        <script>document.addEventListener("DOMContentLoaded", function () {
+             var mathElements = document.getElementsByClassName("math");
+             var macros = [];
+             for (var i = 0; i < mathElements.length; i++) {
+                 var texText = mathElements[i].firstChild;
+                 if (mathElements[i].tagName == "SPAN") {
+                     katex.render(texText.data, mathElements[i], {
+                         displayMode: mathElements[i].classList.contains('display'),
+                         throwOnError: false,
+                         macros: macros,
+                         fleqn: false
+                     });
+         }}});
+        </script>
+        <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+    </head>
+    <body>
+        <div id="container" class="container">
+            <img id="theFig" class='img' src="figs/fig_raw_trig_charuco.png" alt="" />
+            <!-- <canvas id="theCanvas" class="canvas"></canvas> -->
+            <p style="position: absolute; top: 15%; left: 1%;" href="#fn:1"></p>
+            <p style="position: absolute; top: 15%; left: 20%;" href="#fn:2"></p>
+            <p style="position: absolute; top: 15%; left: 50%;" href="#fn:3"></p>
+            <p style="position: absolute; top: 35%; left: 2%;" href="#fn:4"></p>
+            <p style="position: absolute; top: 55%; left: 2%;" href="#fn:5"></p>
+            <p style="position: absolute; top: 70%; left: 2%;" href="#fn:6"></p>
+            <p style="position: absolute; top: 85%; left: 2%;" href="#fn:7"></p>
+        </div>
+
+        <!-- Footnote List -->
+        <div class="footnotes">
+            <ol>
+                <li class="footnote" id="fn:1">A) We identified 9 corners as keypoints on the ChArUco board in 200 frames from each of 6 cameras.</li>
+                <li class="footnote" id="fn:2">B) For comparison, we used manual annotation of the same ChArUco board dataset to train a neural network. We then compared tracking errors of the manual annotations, the neural network, and OpenCV.</li>
+                <li class="footnote" id="fn:3">C) Error in manually annotated keypoints relative to the sub-pixel precision of OpenCV detections. Manually annotated keypoints had a mean error of (0.52, -0.75) pixels and standard deviation of (2.57, 2.39) pixels.</li>
+                <li class="footnote" id="fn:4">D) Lengths between all possible pairs of keypoints were computed and compared to the physical lengths. Similarly, all possible angles between triplets of keypoints were computed and compared to known physical angles. OpenCV keypoints provided the most reliable estimates, followed by neural network predictions, then manual annotations. Note that OpenCV generally detected only a small fraction of the keypoints detected by the neural network or through manual annotation (19.3% of keypoints detected by OpenCV, compared to 78.1% by the neural network and 75% by manual annotations).</li>
+                <li class="footnote" id="fn:5">E) At this stage, prior to filtering, outlier and missing keypoint detections are apparent. Shown at left is an example trace of the tracked 3D position of the base of the mouse hand, projected onto the direction of the reach. On the right, we quantified the distribution of errors when estimating all joint positions and angles, relative to manual annotations. For the mouse dataset, 1 pixel corresponds to approximately 0.09 mm.</li>
+                <li class="footnote" id="fn:6">F) Same layout as A, but for 3D position of the fly hind-leg tibia-tarsus joint, projected onto the longitudinal axis of the fruit fly. For the fly dataset, 1 pixel <span class="math inline">\approx</span>.0075 mm.</li>
+                <li class="footnote" id="fn:7">G) Same layout as A, but for tracked 3D position of a human wrist, projected onto an arbitrary axis. Note that the human (and their wrist) is moving throughout the room. For the human dataset, 1 pixel <span class="math inline">\approx</span> 4.8 mm.</li>
+            </ol>
+        </div>
+
+
+
+        <style>
+         .img {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+         }
+         .container {
+             width: 100%;
+             height: auto;
+             position: relative;
+             display: inline-block;
+             padding: 0;
+             margin: 0;
+             flex: 1 1 auto;
+         }
+
+
+         .littlefoot-footnote__button {
+             background-color: rgba(100, 100, 100, 0.9);
+         }
+
+         .littlefoot-footnote__wrapper {
+             width: 30em;
+         }
+
+         .littlefoot-footnote__button__ellipsis {
+             padding: 1em 1em;
+         }
+        </style>
+
+    </body>
+</html>

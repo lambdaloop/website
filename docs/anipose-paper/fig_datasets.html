@@ -1,0 +1,122 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/littlefoot/dist/littlefoot.css"
+        />
+        <script
+            src="https://unpkg.com/littlefoot/dist/littlefoot.js"
+            type="application/javascript"
+        ></script>
+        <script>
+         window.addEventListener('DOMContentLoaded', function(){
+             var fig = document.getElementById("theFig");
+             var container = document.getElementById("container");
+             fig.onload = function(){
+                 var height = fig.height;
+                 var width = fig.width;
+                 var elements = container.getElementsByTagName("p");
+                 for (var i=0; i < elements.length; i+=1) {
+                     var p = elements[i];
+                     p.style.left = parseFloat(p.style.left) / 100.0 * height + "px";
+                     p.style.top = parseFloat(p.style.top) / 100.0 * width + "px";
+                 }
+                 littlefoot.littlefoot({
+                     // activateOnHover: true,
+                     // dismissOnUnhover: true
+                 })
+             }
+         });
+        </script>
+
+        <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+        <script>document.addEventListener("DOMContentLoaded", function () {
+             var mathElements = document.getElementsByClassName("math");
+             var macros = [];
+             for (var i = 0; i < mathElements.length; i++) {
+                 var texText = mathElements[i].firstChild;
+                 if (mathElements[i].tagName == "SPAN") {
+                     katex.render(texText.data, mathElements[i], {
+                         displayMode: mathElements[i].classList.contains('display'),
+                         throwOnError: false,
+                         macros: macros,
+                         fleqn: false
+                     });
+         }}});
+        </script>
+        <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+    </head>
+    <body>
+        <div id="container" class="container">
+            <img id="theFig" class='img' src="figs/fig_datasets.png" alt="" />
+            <!-- <canvas id="theCanvas" class="canvas"></canvas> -->
+            <p style="position: relative; top: 18%; left: 0%; z-index: 3;">
+                <sup id="fnref:1"><a href="#fn:1">1</a></sup></p>
+            <p style="position: relative; top: 38%; left: 0%; z-index: 3;">
+                <a href="#fn:2"></a></p>
+            <p style="position: relative; top: 60%; left: 0%; z-index: 3;">
+                <a href="#fn:3"></a></p>
+            <p style="position: relative; top: 90%; left: 0%; z-index: 3;">
+                <a href="#fn:4"></a></p>
+        </div>
+
+        <!-- Footnote List -->
+        <div class="footnotes">
+            <ol>
+                <li class="footnote" id="fn:1">
+                    A) To evaluate tracking errors, a <span class="math inline">2 \times 2</span> mm precision manufactured ChArUco board was simultaneously filmed from 6 cameras focused on the same point in space. We manually annotated and tracked 9 keypoints on the ChArUco board, a subset of the points that can be detected automatically with OpenCV.
+                </li>
+                <li class="footnote" id="fn:2">
+                    B) Adult mice were trained to reach for food pellets through an opening in a clear acrylic box. After training, reach attempts were captured from 2 cameras. To quantify reach kinematics, we labeled and tracked 3 keypoints on each hand.
+                </li>
+                <li class="footnote" id="fn:3">C) Fruit flies were tethered and positioned on a spherical treadmill, where they were able to walk, groom, etc. Fly behavior was filmed from 6 cameras evenly distributed around the treadmill. We labeled and tracked 5 keypoints on each of the 6 legs, one keypoint for each of the major leg joints.</li>
+                <li class="footnote" id="fn:4">D) As part of the Human 3.6M dataset, professional actors performing a range of actions were filmed from 4 cameras. We tracked 17 joints on each human, covering the major joints of the human body.</li>
+            </ol>
+        </div>
+
+
+
+        <style>
+         .img {
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+         }
+         .container {
+             width: 100%;
+             height: auto;
+             position: relative;
+             display: inline-block;
+             padding: 0;
+             margin: 0;
+             flex: 1 1 auto;
+         }
+
+
+         .littlefoot-footnote__button {
+             background-color: rgba(100, 100, 100, 0.9);
+         }
+
+         .littlefoot-footnote__wrapper {
+             width: 30em;
+         }
+
+         .littlefoot-footnote__button__ellipsis {
+             padding: 1em 1em;
+         }
+        </style>
+
+    </body>
+</html>
