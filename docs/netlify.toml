@@ -1,0 +1,18 @@
+[[redirects]]
+  from = "/cse599d"
+  to = "http://73.109.111.105:7500/cse599d"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+
+[[redirects]]
+  from = "/getpaper"
+  to = "http://73.109.111.105:7500/getpaper"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
