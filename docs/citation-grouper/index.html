@@ -1,0 +1,158 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Citation Grouper</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <style>
+         details {
+             margin-left: 20px;
+         }
+         form.htmx-request {
+             opacity: .5;
+             transition: opacity 300ms linear;
+         }
+        </style>
+        <script src="https://unpkg.com/htmx.org@1.8.2"></script>
+    </head>
+    <body>
+
+        <h1>Citation Grouper</h1>
+        <p>
+            In this demo, I show a vision for grouping and displaying a group of citations hierarchically.
+            I group papers using hierachical clustering based on the
+            <a href="https://github.com/allenai/specter">SPECTER embeddings</a> provided by Semantic Scholar.
+            Then, to interpret the groups, I use GPT3 to generate a title for each group based on the titles of the groups below it.
+            The group titles are the key aspect of the demo and allow the user to browse an <b>interpretable</b> hieararchy.
+        </p>
+
+        <p>
+            The papers to be grouped can be either the CSE599D papers (by default), or they can be the references of an article.
+            This works particularly well for browsing references in a review article.
+        </p>
+
+
+        <form hx-target="#toswap" hx-get="http://73.109.111.105:7500//getpaper">
+            <label>Semantic Scholar URL</label>
+            <input type="text" name="url" value="">
+            <button>Submit</button>
+        </form>
+
+        <button hx-target="#toswap" hx-get="http://73.109.111.105:7500//cse599d">
+            Show me CSE599D papers
+        </button>
+
+        <br/> <br/>
+
+        <div id="toswap">
+            <div>Papers from CSE 599D: The Future of Scholarly Communication</div>
+            <details>
+                <summary>The use of visual abstracts to disseminate research on social media: a prospective, case-control crossover study</summary>
+                <ul><li><a href="https://www.semanticscholar.org/paper/91b5f860d161fadb10fcf8d8ea4c1294541c088b">A. Ibrahim et al. (2017) Visual Abstracts to Disseminate Research on Social Media: A Prospective, Case-control Crossover Study. <i>Annals of surgery</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/0de3b6ef0dd2988de31a212fea0db94f45572929">Editorial Team. (2021) Distill Hiatus. <i>Distill</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/21374f7f1c84c9bb0de25cf66889045204f6eb5d">P. Ginsparg. (2011) ArXiv at 20. <i>Nature</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/e291f920147ae876877928e1be94f62ef732e3c6">Fred Hohman et al. (2020) Communicating with Interactive Articles. <i></i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/d377e9a167996d18eaaa35786cfcadecbc8b241e">J. Perkel. (2021) Reactive, reproducible, collaborative: computational notebooks evolve.. <i>Nature</i></a></li></ul></details>
+            <details>
+                <summary>Literate programming, adaptive document layout, and edit wear and read wear</summary>
+                <ul><li><a href="https://www.semanticscholar.org/paper/1ffa1efffa494807ba40ccf6453d156167caa12f">D. Knuth. (1984) Literate Programming. <i>Comput. J.</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/1e218bc2572500ae7fb3799b2aac416481ca828b">C. Jacobs et al. (2004) Adaptive document layout. <i>CACM</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/d3d61d8dd03347986484c3fdc8b3b0e3550049c5">W. Hill et al. (1992) Edit wear and read wear. <i>CHI</i></a></li></ul></details>
+            <details>
+                <summary>The benefits and challenges of preregistration in psychology</summary>
+                <ul><li><a href="https://www.semanticscholar.org/paper/999adaa95f04ec1596c6408cfefa2fdf018266b3">A. Szollosi et al. (2019) Is Preregistration Worthwhile?. <i>Trends in Cognitive Sciences</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/d47e3715750cf22f73d5b240162399a1fa446dc4">Brian A. Nosek et al. (2019) Preregistration Is Hard, And Worthwhile. <i>Trends in Cognitive Sciences</i></a></li></ul></details>
+            <details>
+                <summary>The state of open science: a large-scale analysis of the prevalence and impact of open access articles</summary>
+                <ul><li><a href="https://www.semanticscholar.org/paper/c2fccee04fd91439096a80972659dd764e9c0e2d">H. Piwowar et al. (2018) The state of OA: a large-scale analysis of the prevalence and impact of Open Access articles. <i>PeerJ</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/6f87e155df9468a2fb2ec17b0d3c1f2cda8ca764">D. Levy and C. Marshall. (1995) Going digital: a look at assumptions underlying digital libraries. <i>CACM</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/b446009d1466f99301e60f3254a682cd0b4e8a08">J. Willinsky. (2005) The unacknowledged convergence of open source, open access, and open science. <i>First Monday</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/dba319f82d1f972b6ca82b089173c74e1e67a002">Benedikt Fecher and Sascha Friesike. (2013) Open Science: One Term, Five Schools of Thought. <i></i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/fc55f48ca49700b620166b7bc7496b6d6e758d1f">S. Fortunato et al. (2018) The Science of Science. <i>Science</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/98e6ceee854cbc0f7b4377b927108074cadaa422">M. Moravcsik and Poovan Murugesan. (1975) Some Results on the Function and Quality of Citations. <i></i></a></li></ul></details>
+            <details>
+                <summary>A review of methods for automatic bibliographic data recognition and term extraction, document formatting, chart image analysis and redesign, and scientific paper reading</summary>
+                <details>
+                    <summary>Automatic bibliographic data recognition and term extraction for scholarship publications: a review</summary>
+                    <details>
+                        <summary>Automatic bibliographic data recognition and term extraction for scholarship publications: a review</summary>
+                        <ul><li><a href="https://www.semanticscholar.org/paper/d55c8fbb7f314b5599c69d89f5993999cf5553af">Patrice Lopez. (2009) GROBID: Combining Automatic Bibliographic Data Recognition and Term Extraction for Scholarship Publications. <i>ECDL</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/649def34f8be52c8b66281af98ae884c09aef38b">Waleed Ammar et al. (2018) Construction of the Literature Graph in Semantic Scholar. <i>NAACL</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/50a21d90ccf2b04c9ffa953387a16da4c9fba288">Daniel S. Himmelstein et al. (2019) Open collaborative writing with Manubot. <i>PLoS Comput. Biol.</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/e47868841d87efe261451a43b00d6c81cf7fb7a3">T. Kluyver et al. (2016) Jupyter Notebooks - a publishing format for reproducible computational workflows. <i>ELPUB</i></a></li></ul></details>
+                    <details>
+                        <summary>Recent advances in biomedical literature mining for covid-19</summary>
+                        <ul><li><a href="https://www.semanticscholar.org/paper/4f6c2f6e07315ec39f11432ff8465de64a495764">Tom Hope et al. (2020) SciSight: Combining faceted navigation and research group detection for COVID-19 exploratory scientific search. <i>bioRxiv</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/c4ce6aca9aed41d57d588674484932e0c2cd3547">Aida Amini et al. (2020) Extracting a Knowledge Base of Mechanisms from COVID-19 Papers. <i>NAACL</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/4924c2eb4b5cf9d19aa157da957cad11cb70d366">Sam Henry and Bridget T. McInnes. (2017) Literature Based Discovery: Models, methods, and trends. <i>J. Biomed. Informatics</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/d1e9e2355a5ae34aedb40c64db5f00ab06989eee">Sendong Zhao et al. (2020) Recent advances in biomedical literature mining. <i>Briefings Bioinform.</i></a></li></ul></details>
+                    <details>
+                        <summary>A review of papers on knowledge base construction using deepdive</summary>
+                        <ul><li><a href="https://www.semanticscholar.org/paper/55d2baaeb348bd091a8d045cc116680aa824247a">S. Peters et al. (2014) A Machine Reading System for Assembling Synthetic Paleontological Databases. <i>PloS one</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/d1cf6bafac02ac65c7464bc7b168023584a688d7">Tom Hope et al. (2022) A Computational Inflection for Scientific Discovery. <i>ArXiv</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/42936c2f2f5c8f4152494b94609fb33ec6264b8b">Duen Horng Chau et al. (2011) Apolo: making sense of large network data by combining rich user interaction and machine learning. <i>CHI</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/7f40eba81644fdb356102a1d97a75fae4e7d3856">V. Tshitoyan et al. (2019) Unsupervised word embeddings capture latent knowledge from materials science literature. <i>Nature</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/533fb9cb19d26d97b6588b9fd573a0f3498505b3">Christopher De Sa et al. (2015) Incremental Knowledge Base Construction Using DeepDive. <i>The VLDB Journal</i></a></li></ul></details>
+                </details>
+                <details>
+                    <summary>Automatic document formatting: a review of the literature</summary>
+                    <ul><li><a href="https://www.semanticscholar.org/paper/a06ca6430231baee5600db55fb7d275d150cd978">N. Hurst et al. (2005) Toward tighter tables. <i>DocEng '05</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/455d6b8b9753dad918de93a54fa70ff990f0bcc8">N. Hurst et al. (2009) Review of automatic document formatting. <i>DocEng '09</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/bf3a9da17f9dbeb2d2d09f4d562c903e4e9b2f2e">T. Phelps and R. Wilensky. (2000) Robust intra-document locations. <i>Comput. Networks</i></a></li></ul></details>
+                <details>
+                    <summary>Automated analysis and redesign of chart images</summary>
+                    <ul><li><a href="https://www.semanticscholar.org/paper/083eb124828f2870c8e935f7d9938bcaddf8a24f">Andrew Head et al. (2022) Math Augmentation: How Authors Enhance the Readability of Formulas using Novel Visual Design Practices. <i>CHI</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/ac47d785610ab432b59375f4b1c2d97379050132">Jonathan Zong et al. (2022) Rich Screen Reader Experiences for Accessible Data Visualization. <i>Comput. Graph. Forum</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/50fc6e1002d365c21fb6d372f76b332b04e26af3">Nicholas Kong and Maneesh Agrawala. (2012) Graphical Overlays: Using Layered Elements to Aid Chart Reading. <i>IEEE Transactions on Visualization and Computer Graphics</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/0c0d2a64ced02ffe78341eaa65d1877d04be4245">Alan Lundgard and Arvind Satyanarayan. (2021) Accessible Visualization via Natural Language Descriptions: A Four-Level Model of Semantic Content. <i>IEEE Transactions on Visualization and Computer Graphics</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/be492fa6af329a487e2048df6c931e7f9d41d451">J. Poco et al. (2018) Extracting and Retargeting Color Mappings from Bitmap Images of Visualizations. <i>IEEE Transactions on Visualization and Computer Graphics</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/dbe437cb28f6d3be4149a503cf71f60847dfd2ae">J. Poco and Jeffrey Heer. (2017) Reverse‐Engineering Visualizations: Recovering Visual Encodings from Chart Images. <i>Comput. Graph. Forum</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/df953c84062ac2dbefe8322babff8007df25a94a">M. Savva et al. (2011) ReVision: automated classification, analysis and redesign of chart images. <i>UIST</i></a></li></ul></details>
+                <details>
+                    <summary>Current state of the art in scientific document accessibility</summary>
+                    <ul><li><a href="https://www.semanticscholar.org/paper/3502a542b2e98d9094e1880a30f652d4170b9534">Isabel Cachola et al. (2020) TLDR: Extreme Summarization of Scientific Documents. <i>FINDINGS</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/f95620883ce631dcca296d6301ab094555a9b1c4">Zejiang Shen et al. (2021) VILA: Improving Structured Content Extraction from Scientific PDFs Using Visual Layout Groups. <i>TACL</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/d4f95365a0c1aec74333f50a996c62bfad4a8478">Mark Neumann et al. (2021) PAWLS: PDF Annotation With Labels and Structure. <i>ACL</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/0ae334ac9609022524aeaf74d62d83fb52648402">Jeffrey P. Bigham et al. (2016) An Uninteresting Tour Through Why Our Research Papers Aren't Accessible. <i>CHI Extended Abstracts</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/56fbb4152b4535230827eb2bd23c618045855c26">Lucy Lu Wang et al. (2021) Improving the Accessibility of Scientific Documents: Current State, User Needs, and a System Solution to Enhance Scientific PDF Accessibility for Blind and Low Vision Users. <i>ArXiv</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/582616fe83a85f095a16778c28297723e25b0ea7">Lucy Lu Wang et al. (2021) SciA11y: Converting Scientific Papers to Accessible HTML. <i>ASSETS</i></a></li></ul></details>
+                <details>
+                    <summary>Interactive reading systems: a survey of the literature</summary>
+                    <ul><li><a href="https://www.semanticscholar.org/paper/536f1c9f46c147209d3dbd3e2579060e3a7f80d2">Sacha Zyto et al. (2012) Successful classroom deployment of a social document annotation system. <i>CHI</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/8b369ad4d7f30a6ff84e7c12ac61d78da32837a2">Matthew Conlen and Jeffrey Heer. (2022) Fidyll: A Compiler for Cross-Format Data Stories & Explorable Explanations. <i>ArXiv</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/4fca64e6dc4e803d3ed904c04c6845a9e6adc53e">Matthew Conlen and Jeffrey Heer. (2018) Idyll: A Markup Language for Authoring and Publishing Interactive Articles on the Web. <i>UIST</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/fe1ea23231e63bdc8738635046e21d7e655e55f2">Matthew Conlen et al. (2019) Capture & Analysis of Active Reading Behaviors for Interactive Articles on the Web. <i>Comput. Graph. Forum</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/c23931a0c93459db54068efb82f15bcd6b3de4a9">Dae Hyun Kim et al. (2021) Towards Understanding How Readers Integrate Charts and Captions: A Case Study with Line Charts. <i>CHI</i></a></li>
+                        <li><a href="https://www.semanticscholar.org/paper/7fa1a358ca20d7d169fd57c163c3328d954965c7">Dae Hyun Kim et al. (2018) Facilitating Document Reading by Linking Text and Tables. <i>UIST</i></a></li></ul></details>
+                <details>
+                    <summary>A review of methods for identifying important citations in scientific paper reading</summary>
+                    <details>
+                        <summary>Citation contexts in scientific paper reading</summary>
+                        <ul><li><a href="https://www.semanticscholar.org/paper/277360f074e809135d4b49cf7fd2f572c0db6658">Napol Rachatasumrit et al. (2022) CiteRead: Integrating Localized Citation Contexts into Scientific Paper Reading. <i>IUI</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/0079692cd41bbf56e27f0744ec0fd595007dc9e7">Andrew Head et al. (2020) Augmenting Scientific Papers with Just-in-Time, Position-Sensitive Definitions of Terms and Symbols. <i>CHI</i></a></li></ul></details>
+                    <details>
+                        <summary>A review of methods for identifying important citations</summary>
+                        <ul><li><a href="https://www.semanticscholar.org/paper/907604336be12211bc8c606c59e470d7669cda47">Po-Shen Lee et al. (2016) Viziometrics: Analyzing Visual Information in the Scientific Literature. <i>IEEE Transactions on Big Data</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/f338304435183c446671010b4e87fc505fba0ae7">J. Bollen et al. (2009) Clickstream Data Yields High-Resolution Maps of Science. <i>PloS one</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/47b1eafba45aa7cfbc85bf737439b140594868ed">Carl T. Bergstrom. (2007) Eigenfactor Measuring the value and prestige of scholarly journals. <i></i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/07c6ece2db96a2f606809615edb38c34e95dd32d">Xiao-Dan Zhu et al. (2015) Measuring academic influence: Not all citations are equal. <i>J. Assoc. Inf. Sci. Technol.</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/bf607ae03187059fe38779aab0953853ce5a90fb">J. Bollen et al. (2009) A Principal Component Analysis of 39 Scientific Impact Measures. <i>PloS one</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/fe797097c3eb710294fc7e57faee7b6231687b0c">Saeed-Ul Hassan et al. (2017) Identifying Important Citations Using Contextual Information from Full Text. <i>2017 ACM/IEEE Joint Conference on Digital Libraries (JCDL)</i></a></li>
+                            <li><a href="https://www.semanticscholar.org/paper/1c7be3fc28296a97607d426f9168ad4836407e4b">Marco Valenzuela et al. (2015) Identifying Meaningful Citations. <i>AAAI Workshop: Scholarly Big Data</i></a></li></ul></details>
+                </details>
+            </details>
+            <details>
+                <summary>The cost structure of sensemaking: voyagers and voyeurs: supporting asynchronous collaborative visualization: exploration and explanation in computational notebooks: mage</summary>
+                <ul><li><a href="https://www.semanticscholar.org/paper/bfde5190c5300e8b9b1c370efa8de96390144f96">D. Russell et al. (1993) The cost structure of sensemaking. <i>INTERCHI</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/22705b1555e1dfbb2e821f97e075c5aab36edfb4">Jeffrey Heer et al. (2009) Voyagers and voyeurs: Supporting asynchronous collaborative visualization. <i>CACM</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/fcc86317d6a0e5f67968d2e84d20dd5ba0524cf2">Adam Rule et al. (2018) Exploration and Explanation in Computational Notebooks. <i>CHI</i></a></li>
+                    <li><a href="https://www.semanticscholar.org/paper/21ea5e0048b34ef870c91594581fabd5d98315af">Mary Beth Kery et al. (2020) mage: Fluid Moves Between Code and Graphical Work in Computational Notebooks. <i>UIST</i></a></li></ul></details>
+        </div>
+
+    </body>
+</html>
